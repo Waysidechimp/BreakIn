@@ -19,7 +19,8 @@ public class BrickSpawner : MonoBehaviour
         {
             for (int j=0; j < columnNumber; j++)
             {
-                Instantiate(brickPrefab, startSpawn.position + buffer, Quaternion.identity);
+                GameObject brick = Instantiate(brickPrefab, startSpawn.position + buffer, Quaternion.identity);
+                brick.transform.parent = this.transform;
                 buffer.x += columnbuffer;
             }
             buffer.x = 0;

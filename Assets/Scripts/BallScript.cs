@@ -28,7 +28,7 @@ public class BallScript : MonoBehaviour
 
     void followPaddle()
     {
-        Vector3 temp = new Vector3(paddle.transform.position.x, paddle.transform.position.y + 2, paddle.transform.position.z);
+        Vector3 temp = new Vector3(paddle.transform.position.x, paddle.transform.position.y + 1, paddle.transform.position.z);
         transform.position = temp;
     }
 
@@ -50,8 +50,6 @@ public class BallScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided:" + collision.gameObject.tag);
-
 
         if (collision.gameObject.tag == "PlayerBase")
         {

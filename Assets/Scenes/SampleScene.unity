@@ -150,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 171274121}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.12, z: 10}
-  m_LocalScale: {x: 19.462, y: 0.16875, z: 1}
+  m_LocalPosition: {x: 0, y: -5.26, z: 10}
+  m_LocalScale: {x: 21.89475, y: 0.16875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1548376988}
@@ -307,14 +307,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
-    width: 1
-    height: 1
+    y: 0.02
+    width: 1.97
+    height: 1.64
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7.767117
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -339,7 +339,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 2.66, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 571137342}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -453,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 571137337}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.31, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 0.78787, y: 0.78787, z: 0.78787}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -539,10 +539,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickPrefab: {fileID: 3105421380801094080, guid: 13b83f82371f6244b8bb15afc49900d2, type: 3}
   startSpawn: {fileID: 1055014011}
-  rowNumber: 3
-  columnNumber: 9
+  rowNumber: 5
+  columnNumber: 10
   rowbuffer: 0.863
   columnbuffer: 2
+  brickHealth: 3
 --- !u!4 &583932705
 Transform:
   m_ObjectHideFlags: 0
@@ -584,7 +585,7 @@ Transform:
   m_GameObject: {fileID: 1055014010}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 4, z: 0}
+  m_LocalPosition: {x: -8.78, y: 8.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -622,7 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  maxX: 7.8
+  maxX: 10
 --- !u!212 &1180412541
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -734,13 +735,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.27094507, y: 0.49029037}
+    - - {x: 0.19439997, y: 0.49029037}
       - {x: -0.018784672, y: 0.49136278}
-      - {x: -0.3074599, y: 0.4928113}
-      - {x: -0.49400634, y: 0.072093934}
+      - {x: -0.19264218, y: 0.49281132}
+      - {x: -0.500965, y: -0.11526489}
       - {x: -0.5, y: -0.5}
       - {x: 0.5, y: -0.5}
-      - {x: 0.50241524, y: 0.054674152}
+      - {x: 0.49719626, y: 0.017202657}
   m_UseDelaunayMesh: 0
 --- !u!1 &1536239872
 GameObject:
@@ -809,11 +810,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -7.832004, y: -5.0320044}
-  - {x: -7.871984, y: 5.0320034}
-  - {x: 7.871983, y: 4.9679956}
-  - {x: 7.903988, y: -5.032004}
-  - {x: 8, y: -5}
+  - {x: -10.574078, y: -5.0662813}
+  - {x: -10.545506, y: 10.447599}
+  - {x: 10.545506, y: 10.486419}
+  - {x: 10.57751, y: -5.1005554}
+  - {x: 10.57751, y: -3.6266916}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

@@ -13,7 +13,7 @@ public class PaddleScript : MonoBehaviour
     void Start()
     {
         speed = 7;
-        maxX = 10f;
+        maxX = 9f;
     }
 
     // Update is called once per frame

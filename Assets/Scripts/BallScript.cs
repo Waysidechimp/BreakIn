@@ -34,7 +34,7 @@ public class BallScript : MonoBehaviour
 
     void fireBall()
     {
-        if (Input.GetKeyDown("w")){
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up") || Input.GetKeyDown("space")){
             withPaddle = false;
             rb.velocity = Vector2.up * 10f;   
         }

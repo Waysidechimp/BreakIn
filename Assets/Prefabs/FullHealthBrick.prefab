@@ -143,3 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd63d95914634a94a8f2db085672172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagedBrick: {fileID: 21300000, guid: c95b27502f193424d949658d02ef31b1, type: 3}
+  brokenBrick: {fileID: 21300000, guid: ffc416e9b6de546178631ea4efb2ca26, type: 3}

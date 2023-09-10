@@ -12,7 +12,7 @@ public class PaddleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = 7;
+        speed = 8f;
         maxX = 9f;
     }
 

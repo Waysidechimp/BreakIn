@@ -143,3 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd63d95914634a94a8f2db085672172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damagedBrick: {fileID: 0}
+  brokenBrick: {fileID: 0}
+  brokenParticles: {fileID: 8497551589641931803, guid: 8c45c1edd0c73ac40843da1fe7f0985f, type: 3}

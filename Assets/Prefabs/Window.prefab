@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagedBrick: {fileID: 0}
   brokenBrick: {fileID: 0}
+  brokenParticles: {fileID: 8497551589641931803, guid: 8c45c1edd0c73ac40843da1fe7f0985f, type: 3}

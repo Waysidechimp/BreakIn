@@ -6,9 +6,9 @@ public class BallScript : MonoBehaviour
 {
     //If with paddle is true follow the paddle and shoot forward when
     //player clicks
-
-    public bool withPaddle = true;
-    public GameObject paddle;
+    [SerializeField] PauseControl pause; 
+    [SerializeField] bool withPaddle = true;
+    [SerializeField] GameObject paddle;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -23,6 +23,8 @@ public class BallScript : MonoBehaviour
         if (withPaddle)
             followPaddle();
 
+
+        if(!pause.getGameIsPaused() && withPaddle)
         fireBall();
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PaddleScript : MonoBehaviour
 {
+    [SerializeField] PauseControl pause;
     [SerializeField] float speed;
     [SerializeField] float maxX = 10f;
 
@@ -12,6 +13,7 @@ public class PaddleScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         speed = 8f;
         maxX = 9f;
     }
@@ -19,8 +21,12 @@ public class PaddleScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalPosition = Input.GetAxis("Horizontal");
-        move(); 
+
+        if (!pause.getGameIsPaused())
+        {
+            horizontalPosition = Input.GetAxis("Horizontal");
+            move();
+        }
     }
 
     /// <summary>

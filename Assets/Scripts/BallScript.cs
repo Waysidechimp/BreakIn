@@ -50,9 +50,8 @@ public class BallScript : MonoBehaviour
     /// </summary>
     /// <param name="collision"></param>
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.tag == "PlayerBase")
         {
             rb.velocity = Vector3.zero;

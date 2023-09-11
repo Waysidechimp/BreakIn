@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 865157095848255644}
   - component: {fileID: 4225177457670679075}
-  - component: {fileID: 2646783836039612325}
   - component: {fileID: 107373519835023619}
+  - component: {fileID: 2908523055124226939}
   m_Layer: 0
   m_Name: Enemies
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,14 +86,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2646783836039612325
-BoxCollider2D:
+--- !u!114 &107373519835023619
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8162486679554931390}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331bf3146804a4ca1b6811f44b1eb10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  invulnerability: 0.5
+  explosion: {fileID: 1987407317711199008, guid: 413f5f5f618eb4656a9f27b57c7c99c5, type: 3}
+--- !u!60 &2908523055124226939
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162486679554931390}
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -118,7 +133,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.027943999, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -128,19 +143,15 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.47309023, y: 0.5}
-  m_EdgeRadius: 0
---- !u!114 &107373519835023619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8162486679554931390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331bf3146804a4ca1b6811f44b1eb10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
+  m_Points:
+    m_Paths:
+    - - {x: -0.0046070144, y: 0.19605428}
+      - {x: -0.2157906, y: 0.009870004}
+      - {x: -0.21184333, y: -0.13618574}
+      - {x: -0.18223709, y: -0.20526443}
+      - {x: 0.14802752, y: -0.2065802}
+      - {x: 0.20789589, y: -0.1572377}
+      - {x: 0.25293154, y: -0.10346456}
+      - {x: 0.25131553, y: 0.19473836}
+      - {x: 0.25, y: 0.19605418}
+  m_UseDelaunayMesh: 0

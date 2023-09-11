@@ -7,6 +7,8 @@ public class PauseControl : MonoBehaviour
 
     private bool gameIsPaused = true;
 
+    [SerializeField] TimeScript timeScript;
+
     private bool isMenuUp = true;
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,16 @@ public class PauseControl : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
+        }
+    }
+   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+            timeScript.addTime(5f);
         }
     }
 }

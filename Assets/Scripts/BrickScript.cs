@@ -7,9 +7,10 @@ public class BrickScript : MonoBehaviour
     [SerializeField] Sprite damagedBrick;
     [SerializeField] Sprite brokenBrick;
     [SerializeField] ParticleSystem brokenParticles;
+    [SerializeField] GameObject enemyPrefab;
 
     SpriteRenderer spriteRenderer;
-    int health = 0;
+    [SerializeField] int health = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,11 +46,17 @@ public class BrickScript : MonoBehaviour
             }
             if (health <= 0)
             {
-                ParticleSystem debris = Instantiate(brokenParticles, this.gameObject.transform);
-                debris.transform.SetParent(null);
-                debris.transform.position = new Vector3(debris.transform.position.x+0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
-                Destroy(this.gameObject);
+                Instantiate(enemyPrefab, gameObject.transform.position, Quaternion.identity);
+                BrickDie();
             }
         }
+    }
+
+    void BrickDie()
+    {
+        ParticleSystem debris = Instantiate(brokenParticles, this.gameObject.transform);
+        debris.transform.SetParent(null);
+        debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
+        Destroy(this.gameObject);
     }
 }

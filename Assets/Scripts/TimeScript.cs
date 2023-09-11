@@ -23,4 +23,9 @@ public class TimeScript : MonoBehaviour
         string formattedTime = string.Format("{0}:{1:00}", (int)currentTime / 60, (int)currentTime % 60);
         TimeUI.text = formattedTime;
     }
+
+    public void addTime(float time)
+    {
+        currentTime += time;
+    }
 }

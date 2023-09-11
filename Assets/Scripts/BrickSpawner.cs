@@ -6,6 +6,7 @@ public class BrickSpawner : MonoBehaviour
 {
     [SerializeField] GameObject brickPrefab;
     [SerializeField] GameObject windowPrefab;
+    [SerializeField] GameObject enemyPrefab;
     [SerializeField, Range(1, 10)] int rowNumber = 0;
     [SerializeField, Range(1, 10)] int columnNumber = 0;
     [SerializeField, Range(0.6f, 2)] float rowbuffer = 0;

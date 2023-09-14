@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
+//Located on PlayerBase game object
 public class PauseControl : MonoBehaviour
 {
 
     private bool gameIsPaused = true;
 
+    [SerializeField] GameObject pauseImage;
     [SerializeField] TimeScript timeScript;
 
     private bool isMenuUp = true;
@@ -24,11 +27,24 @@ public class PauseControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isMenuUp && Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !isMenuUp)
         {
             Debug.Log("Pause: " + gameIsPaused);
             gameIsPaused = !gameIsPaused;
             PauseGame();
+            showPauseImage();
+        }
+    }
+
+    void showPauseImage()
+    {
+        if (getGameIsPaused())
+        {
+            pauseImage.SetActive(true);
+        }
+        else
+        {
+            pauseImage.SetActive(false);
         }
     }
 

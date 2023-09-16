@@ -44,7 +44,7 @@ public class BrickScript : MonoBehaviour
             }
             if (health <= 0)
             {
-                Instantiate(enemyPrefab, gameObject.transform.position, Quaternion.identity);
+                //Instantiate(enemyPrefab, gameObject.transform.position, Quaternion.identity);
                 BrickDie();
             }
         }

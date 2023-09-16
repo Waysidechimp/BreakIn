@@ -1404,13 +1404,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickPrefab: {fileID: 7049591399431835590, guid: b3969741361a64a2580e535736cf27b1, type: 3}
   windowPrefab: {fileID: 579944525181135938, guid: 36af8682b300a47b7b6a7cf296584960, type: 3}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 8162486679554931390, guid: b2566c9f4d5be45a8b2ae5fc0d3a60c2, type: 3}
   rowNumber: 7
   columnNumber: 5
   rowbuffer: 0.863
   columnbuffer: 2
   brickHealth: 3
   windowHealth: 1
+  enemySpawnDelay: 2
+  enemyWaveNumber: 2
+  enemySpawnChance: 100
 --- !u!1 &1118580949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4734765094364470185, guid: 1f379091849aa4a9f9acb08ae6489723, type: 3}
@@ -1774,13 +1777,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brickPrefab: {fileID: 7049591399431835590, guid: b3969741361a64a2580e535736cf27b1, type: 3}
   windowPrefab: {fileID: 579944525181135938, guid: 36af8682b300a47b7b6a7cf296584960, type: 3}
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 8162486679554931390, guid: b2566c9f4d5be45a8b2ae5fc0d3a60c2, type: 3}
   rowNumber: 7
   columnNumber: 5
   rowbuffer: 0.863
   columnbuffer: 2
   brickHealth: 3
   windowHealth: 1
+  enemySpawnDelay: 1
+  enemyWaveNumber: 5
+  enemySpawnChance: 56.3
 --- !u!1 &1448590783
 GameObject:
   m_ObjectHideFlags: 0

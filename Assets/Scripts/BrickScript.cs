@@ -15,7 +15,6 @@ public class BrickScript : MonoBehaviour
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        //gameObject.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 2f), Random.Range(0f, 2f), Random.Range(0f, 2f), 1);
     }
     
     // Update is called once per frame
@@ -31,11 +30,10 @@ public class BrickScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        //Brick changes sprite based on it's health
         if (collision.gameObject.CompareTag("Ball"))
         {
             --health;
-            //gameObject.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 2f), Random.Range(0f, 2f), Random.Range(0f, 2f), 1);
-            //Debug.Log("Name: " + gameObject.name + ", Health: " + health);
             if(health == 2 && damagedBrick != null)
             {
                 spriteRenderer.sprite = damagedBrick;
@@ -52,11 +50,13 @@ public class BrickScript : MonoBehaviour
         }
     }
 
+    //Handles everything that should happen upon death of brick
     void BrickDie()
     {
         ParticleSystem debris = Instantiate(brokenParticles, this.gameObject.transform);
         debris.transform.SetParent(null);
         debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
+        transform.parent.SendMessage("ChangeCheckBricks", true);
         Destroy(this.gameObject);
     }
 }

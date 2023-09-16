@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Located on the ball
 public class BallScript : MonoBehaviour
 {
     //If with paddle is true follow the paddle and shoot forward when
@@ -37,8 +38,22 @@ public class BallScript : MonoBehaviour
     void fireBall()
     {
         if (Input.GetKeyDown("w") || Input.GetKeyDown("up") || Input.GetKeyDown("space")){
+
+            if (Input.GetAxis("Horizontal") < -0.1) //left
+            {
+                rb.velocity = (Vector2.left + Vector2.up) * 7f;
+            }
+            else if (Input.GetAxis("Horizontal") > 0.1) //right
+            {
+                rb.velocity = (Vector2.right + Vector2.up) * 7f;
+            }
+            else //not moving go straight up
+            {
+                rb.velocity = Vector2.up * 10f;
+            }
+
+            //Always after the paddle is shot change it to not with paddle
             withPaddle = false;
-            rb.velocity = Vector2.up * 10f;   
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Located on the paddle gameobject
 public class PaddleScript : MonoBehaviour
 {
     [SerializeField] PauseControl pause;

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+//Located on the Time text UI
 public class TimeScript : MonoBehaviour
 {
 
     [SerializeField] float currentTime = 0;
-    [SerializeField] Text TimeUI;
+    private Text TimeUI;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,10 @@ public class TimeScript : MonoBehaviour
         TimeUI.text = formattedTime;
     }
 
+    /// <summary>
+    /// Adds time to the timer
+    /// </summary>
+    /// <param name="time"></param>
     public void addTime(float time)
     {
         currentTime += time;

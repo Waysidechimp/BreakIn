@@ -39,11 +39,11 @@ public class BallScript : MonoBehaviour
     {
         if (Input.GetKeyDown("w") || Input.GetKeyDown("up") || Input.GetKeyDown("space")){
 
-            if (Input.GetAxis("Horizontal") < -0.1) //left
+            if (Input.GetAxis("Horizontal") < -0.2) //left
             {
                 rb.velocity = (Vector2.left + Vector2.up) * 7f;
             }
-            else if (Input.GetAxis("Horizontal") > 0.1) //right
+            else if (Input.GetAxis("Horizontal") > 0.2) //right
             {
                 rb.velocity = (Vector2.right + Vector2.up) * 7f;
             }

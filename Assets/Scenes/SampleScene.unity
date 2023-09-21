@@ -451,6 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3514e82f7e0924bee992d0b6bcaa98dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseImage: {fileID: 0}
   timeScript: {fileID: 304028903}
 --- !u!50 &171274127
 Rigidbody2D:
@@ -761,7 +762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 0
-  TimeUI: {fileID: 0}
 --- !u!114 &304028904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,8 +792,8 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 00:00
 --- !u!222 &304028905
@@ -1411,9 +1411,9 @@ MonoBehaviour:
   columnbuffer: 2
   brickHealth: 3
   windowHealth: 1
-  enemySpawnDelay: 2
-  enemyWaveNumber: 2
   enemySpawnChance: 100
+  enemySpawnDelay: 4
+  enemyWaveNumber: 5
 --- !u!1 &1118580949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4734765094364470185, guid: 1f379091849aa4a9f9acb08ae6489723, type: 3}
@@ -1490,8 +1490,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Destory all the blocks while keeping the enemies from reaching you tp
-    win. \n\nEach time they reach you, you'll lose health.\n\nIf you're hit enough
-    you'll lose"
+    win. \n\nEach time they reach you, you'll gain time.\n\nGood luck :)"
 --- !u!222 &1267932190
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1784,9 +1783,9 @@ MonoBehaviour:
   columnbuffer: 2
   brickHealth: 3
   windowHealth: 1
-  enemySpawnDelay: 1
+  enemySpawnChance: 100
+  enemySpawnDelay: 4
   enemyWaveNumber: 5
-  enemySpawnChance: 56.3
 --- !u!1 &1448590783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,6 +2509,10 @@ PrefabInstance:
       propertyPath: health
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 8155188465090746513, guid: 8af562b5c68dd43d88dba4317a219daa, type: 3}
+      propertyPath: brokenParticles
+      value: 
+      objectReference: {fileID: 8497551589641931803, guid: 8c45c1edd0c73ac40843da1fe7f0985f, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -29,7 +29,7 @@ public class PauseControl : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !isMenuUp)
         {
-            Debug.Log("Pause: " + gameIsPaused);
+//            Debug.Log("Pause: " + gameIsPaused);
             gameIsPaused = !gameIsPaused;
             PauseGame();
             showPauseImage();

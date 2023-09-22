@@ -11,6 +11,7 @@ TagManager:
   - Door
   - Paddle
   - KillCounter
+  - Wall
   layers:
   - Default
   - TransparentFX

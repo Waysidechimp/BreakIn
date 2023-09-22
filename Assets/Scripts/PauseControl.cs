@@ -15,18 +15,20 @@ public class PauseControl : MonoBehaviour
     [SerializeField] GameObject leftWall;
     [SerializeField] GameObject rightWall;
     [SerializeField] GameObject endUI;
+    [SerializeField] GameObject endBackground;
     [SerializeField] TimeScript time;
 
     private Text resultsText;
     private BrickSpawner leftBrickSpawn;
     private BrickSpawner rightBrickSpawn;
+    private bool resultsShowing;
 
     private bool isMenuUp = true;
     // Start is called before the first frame update
     void Start()
     {
         PauseGame();
-
+        resultsShowing = false;
         leftBrickSpawn = leftWall.GetComponent<BrickSpawner>();
         rightBrickSpawn = rightWall.GetComponent<BrickSpawner>();
 
@@ -49,14 +51,16 @@ public class PauseControl : MonoBehaviour
             showPauseImage();
         }
 
-        if (rightBrickSpawn.winFlag && leftBrickSpawn.winFlag)
+        if (rightBrickSpawn.winFlag && leftBrickSpawn.winFlag && !resultsShowing)
             winGame();
     }
 
     void winGame()
-    { 
-        resultsText.text = "Time: " + time.getCurrentTime() + "\nEnemies Killed: " + GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
-        endUI.SetActive(true);
+    {
+        string kills = GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
+        resultsText.text = "Time: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
+        resultsShowing = true;
+        endBackground.SetActive(true);
     }
 
     void showPauseImage()

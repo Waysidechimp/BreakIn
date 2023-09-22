@@ -456,6 +456,9 @@ MonoBehaviour:
   billboard: {fileID: 3056609465552790516, guid: 67a9dd5efba529e4a8bbffc61186fc21, type: 3}
   leftWall: {fileID: 1055014010}
   rightWall: {fileID: 1398108053}
+  endUI: {fileID: 1664012745}
+  endBackground: {fileID: 1035477144}
+  time: {fileID: 304028903}
 --- !u!50 &171274127
 Rigidbody2D:
   serializedVersion: 4
@@ -1461,6 +1464,10 @@ MonoBehaviour:
   pause: {fileID: 171274126}
   withPaddle: 1
   paddle: {fileID: 1118580949}
+  speedInUnitPerSecond: 0
+  wallBounce: 0
+  bounceLimit: 4
+  upndown: 0
 --- !u!58 &571137342
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2682,7 +2689,7 @@ GameObject:
   - component: {fileID: 1536239874}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

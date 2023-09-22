@@ -8,6 +8,8 @@ TagManager:
   - PlayerBase
   - Ball
   - Enemy
+  - Door
+  - Paddle
   layers:
   - Default
   - TransparentFX

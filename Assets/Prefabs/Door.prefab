@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8155188465090746513}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,4 +146,5 @@ MonoBehaviour:
   damagedBrick: {fileID: 0}
   brokenBrick: {fileID: 0}
   brokenParticles: {fileID: 0}
+  enemyPrefab: {fileID: 0}
   health: 12

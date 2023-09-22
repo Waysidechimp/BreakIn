@@ -10,7 +10,6 @@ public class EnemyScript : MonoBehaviour
     private PolygonCollider2D polygon;
     [SerializeField] ParticleSystem explosion;
 
-
     // Start is called before the first frame update
     void Start()
     {

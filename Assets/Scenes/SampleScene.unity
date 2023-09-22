@@ -453,6 +453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseImage: {fileID: 1863574138}
   timeScript: {fileID: 304028903}
+  billboard: {fileID: 3056609465552790516, guid: 67a9dd5efba529e4a8bbffc61186fc21, type: 3}
 --- !u!50 &171274127
 Rigidbody2D:
   serializedVersion: 4

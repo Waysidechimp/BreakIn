@@ -11,6 +11,7 @@ public class PauseControl : MonoBehaviour
 
     [SerializeField] GameObject pauseImage;
     [SerializeField] TimeScript timeScript;
+    [SerializeField] GameObject billboard;
 
     private bool isMenuUp = true;
     // Start is called before the first frame update
@@ -75,6 +76,9 @@ public class PauseControl : MonoBehaviour
         {
             Destroy(collision.gameObject);
             timeScript.addTime(5f);
+
+            GameObject bill = Instantiate(billboard, collision.gameObject.transform.position, Quaternion.identity);
+            bill.transform.position = new Vector3(bill.transform.position.x + 0.5f, bill.transform.position.y - 0.25f, bill.transform.position.z);
         }
     }
 }

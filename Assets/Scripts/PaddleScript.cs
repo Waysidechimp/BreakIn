@@ -15,8 +15,8 @@ public class PaddleScript : MonoBehaviour
     void Start()
     {
         
-        speed = 8f;
-        maxX = 9f;
+        speed = 10f;
+        maxX = 9.2f;
     }
 
     // Update is called once per frame
@@ -41,6 +41,9 @@ public class PaddleScript : MonoBehaviour
             transform.position += Vector3.right* horizontalPosition * speed * Time.deltaTime;
         }
     }
+
+
+    
 
 
 }

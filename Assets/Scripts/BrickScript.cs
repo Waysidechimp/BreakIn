@@ -56,7 +56,11 @@ public class BrickScript : MonoBehaviour
         ParticleSystem debris = Instantiate(brokenParticles, this.gameObject.transform);
         debris.transform.SetParent(null);
         debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
+
+        //If its not a door then don't sendmessage
+        if(!this.gameObject.CompareTag("Door"))
         transform.parent.SendMessage("ChangeCheckBricks", true);
+
         Destroy(this.gameObject);
     }
 }

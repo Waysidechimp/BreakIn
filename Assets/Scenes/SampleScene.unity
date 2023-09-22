@@ -2185,8 +2185,10 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -10.5703125, y: -5.132142}
-  - {x: -10.574554, y: 10.42765}
-  - {x: 10.571798, y: 10.427651}
+  - {x: -10.574554, y: 10.036537}
+  - {x: -9.999168, y: 10.341862}
+  - {x: 10.022163, y: 10.336545}
+  - {x: 10.551586, y: 9.942583}
   - {x: 10.6, y: 5}
   - {x: 10.5721245, y: -5.107838}
   m_AdjacentStartPoint: {x: 0, y: 0}
@@ -2894,6 +2896,10 @@ PrefabInstance:
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 8155188465090746513, guid: 8af562b5c68dd43d88dba4317a219daa, type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155188465090746513, guid: 8af562b5c68dd43d88dba4317a219daa, type: 3}
       propertyPath: brokenParticles
       value: 
       objectReference: {fileID: 8497551589641931803, guid: 8c45c1edd0c73ac40843da1fe7f0985f, type: 3}
@@ -3069,9 +3075,17 @@ PrefabInstance:
       value: Paddle
       objectReference: {fileID: 0}
     - target: {fileID: 8097966148605176221, guid: 1f379091849aa4a9f9acb08ae6489723, type: 3}
+      propertyPath: maxX
+      value: 9.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097966148605176221, guid: 1f379091849aa4a9f9acb08ae6489723, type: 3}
       propertyPath: pause
       value: 
       objectReference: {fileID: 171274126}
+    - target: {fileID: 8097966148605176221, guid: 1f379091849aa4a9f9acb08ae6489723, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

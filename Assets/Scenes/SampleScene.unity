@@ -1256,6 +1256,10 @@ MonoBehaviour:
   pause: {fileID: 171274126}
   withPaddle: 1
   paddle: {fileID: 1118580949}
+  speedInUnitPerSecond: 0
+  wallBounce: 0
+  bounceLimit: 4
+  upndown: 0
 --- !u!58 &571137342
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1639,7 +1643,7 @@ MonoBehaviour:
   columnbuffer: 2
   brickHealth: 3
   windowHealth: 1
-  enemySpawnChance: 100
+  enemySpawnChance: 26
   enemySpawnDelay: 4
   enemyWaveNumber: 5
 --- !u!1 &1118580949 stripped
@@ -2011,7 +2015,7 @@ MonoBehaviour:
   columnbuffer: 2
   brickHealth: 3
   windowHealth: 1
-  enemySpawnChance: 100
+  enemySpawnChance: 26
   enemySpawnDelay: 4
   enemyWaveNumber: 5
 --- !u!1 &1448590783
@@ -2130,7 +2134,7 @@ GameObject:
   - component: {fileID: 1536239874}
   m_Layer: 0
   m_Name: Walls
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

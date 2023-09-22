@@ -100,7 +100,7 @@ public class BrickSpawner : MonoBehaviour
         {
             timeTilSpawn = 0;
 
-            Debug.Log("Starting");
+            //Debug.Log("Starting");
             int enemiesSpawned = 0;
             foreach (Transform t in enemyBricks)
             {
@@ -116,7 +116,7 @@ public class BrickSpawner : MonoBehaviour
                     break;
                 }
             }
-            Debug.Log("Ending");
+            //Debug.Log("Ending");
             enemiesSpawned = 0;
         }
 

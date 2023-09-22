@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //Located on the Time text UI
 public class TimeScript : MonoBehaviour
 {
-    //[SerializeField] GameObject camera;
+
     [SerializeField] float currentTime = 0;
     private Text TimeUI;
 

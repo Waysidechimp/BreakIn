@@ -101,7 +101,6 @@ MonoBehaviour:
   speed: 1
   invulnerability: 0.5
   explosion: {fileID: 1987407317711199008, guid: 413f5f5f618eb4656a9f27b57c7c99c5, type: 3}
-  textObject: {fileID: 7619607591843332473, guid: d70a7f74c4dba48e1a99bbf6401de969, type: 3}
 --- !u!60 &2908523055124226939
 PolygonCollider2D:
   m_ObjectHideFlags: 0

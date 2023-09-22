@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 public class EnemyScript : MonoBehaviour
 {
     [SerializeField]
@@ -9,20 +9,11 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float invulnerability = 0.5f;
     private PolygonCollider2D polygon;
     [SerializeField] ParticleSystem explosion;
-    private GameObject textObject;
-    private Text deathText;
 
     // Start is called before the first frame update
     void Start()
     {
         polygon = gameObject.GetComponent<PolygonCollider2D>();
-    }
-
-    private void Awake()
-    {
-        textObject = GameObject.FindGameObjectWithTag("KillCounter");
-        deathText = textObject.GetComponent<Text>();
-
     }
 
     // Update is called once per frame
@@ -37,19 +28,12 @@ public class EnemyScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ball" || collision.gameObject.tag == "Paddle") {
+        if (collision.gameObject.tag == "Ball") {
             ParticleSystem debris = Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
-            addDeathCount();
+
             Destroy(this.gameObject);
         }
-    }
-
-    private void addDeathCount()
-    {
-
-        int currentDeaths = int.Parse(deathText.text) + 1;
-        deathText.text = currentDeaths.ToString();
     }
 
     private void iFrame()

@@ -11,11 +11,26 @@ public class BallScript : MonoBehaviour
     [SerializeField] bool withPaddle = true;
     [SerializeField] GameObject paddle;
     private Rigidbody2D rb;
+    [SerializeField]
+    float speedInUnitPerSecond;
+    //can remove serializefield
+    [SerializeField]
+    int wallBounce;
+    [SerializeField]
+    int bounceLimit = 4;
+
+
+
+    //temp
+    [SerializeField]
+    float upndown;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        wallBounce = 0;
     }
 
     // Update is called once per frame
@@ -27,6 +42,14 @@ public class BallScript : MonoBehaviour
 
         if(!pause.getGameIsPaused() && withPaddle)
         fireBall();
+
+        
+
+        
+        
+        upndown = rb.velocity.y;
+        speedInUnitPerSecond = rb.velocity.magnitude;
+
     }
 
     void followPaddle()
@@ -41,7 +64,9 @@ public class BallScript : MonoBehaviour
 
             if (Input.GetAxis("Horizontal") < -0.2) //left
             {
+
                 rb.velocity = (Vector2.left + Vector2.up) * 7f;
+                //rb.velocity = (Vector2.left ) * 7f;
             }
             else if (Input.GetAxis("Horizontal") > 0.2) //right
             {
@@ -71,6 +96,34 @@ public class BallScript : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             withPaddle = true;
+        }
+        
+    }
+  
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collided; " + collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            wallBounce++;
+            if (wallBounce >= bounceLimit)
+            {
+                if (rb.velocity.y < 1 && rb.velocity.y > -1) {
+                    if (rb.velocity.y >= 0)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + 1f);
+                    }
+                    else {
+                        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 1f);
+                    }
+                }
+                
+            }
+        }
+        if (collision.gameObject.tag != "Wall")
+        {
+            wallBounce = 0;
         }
     }
 }

@@ -102,6 +102,7 @@ MonoBehaviour:
   brokenBrick: {fileID: 21300000, guid: ffc416e9b6de546178631ea4efb2ca26, type: 3}
   brokenParticles: {fileID: 8497551589641931803, guid: 8c45c1edd0c73ac40843da1fe7f0985f, type: 3}
   enemyPrefab: {fileID: 8162486679554931390, guid: b2566c9f4d5be45a8b2ae5fc0d3a60c2, type: 3}
+  Shake: {fileID: 1900582492228284237, guid: 30ba83d39e3f5c548b2551b6a68ecdbe, type: 3}
   health: 0
 --- !u!60 &6269122212405591969
 PolygonCollider2D:

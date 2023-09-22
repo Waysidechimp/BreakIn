@@ -54,7 +54,7 @@ public class EnemyScript : MonoBehaviour
 
     private void iFrame()
     {
-        invulnerability -= Time.time;
+        invulnerability -= Time.deltaTime;
 
         if(invulnerability <= 0)
         {

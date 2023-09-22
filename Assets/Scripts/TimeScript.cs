@@ -17,6 +17,11 @@ public class TimeScript : MonoBehaviour
         TimeUI = gameObject.GetComponent<Text>();
     }
 
+    public string getCurrentTime()
+    {
+        return TimeUI.text;
+    }
+
     // Update is called once per frame
     void Update()
     {

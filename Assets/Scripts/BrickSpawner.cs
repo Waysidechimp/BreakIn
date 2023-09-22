@@ -30,6 +30,7 @@ public class BrickSpawner : MonoBehaviour
     Transform startSpawn;
     Transform[,] bricks;
     List<Transform> enemyBricks;
+    public bool winFlag = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -44,7 +45,16 @@ public class BrickSpawner : MonoBehaviour
     {
         FindValidSpawnBricks();
         SpawnEnemies();
-        
+        CheckWinFlag();
+    }
+
+    public bool CheckWinFlag()
+    {
+        if(enemyBricks.Count == 0)
+        {
+            winFlag = true;
+        }
+        return winFlag;
     }
 
     //Spawns the inital bricks and windows with helper methods. Also spaces these gameobjects.

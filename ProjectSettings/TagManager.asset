@@ -10,7 +10,7 @@ TagManager:
   - Enemy
   - Door
   - Paddle
-  - Wall
+  - KillCounter
   layers:
   - Default
   - TransparentFX

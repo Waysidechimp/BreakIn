@@ -8,12 +8,16 @@ public class BrickScript : MonoBehaviour
     [SerializeField] Sprite brokenBrick;
     [SerializeField] ParticleSystem brokenParticles;
     [SerializeField] GameObject enemyPrefab;
+    private GameObject mainCamera;
+    private shake Shake;
 
     SpriteRenderer spriteRenderer;
     [SerializeField] int health = 0;
     // Start is called before the first frame update
     void Start()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        Shake = mainCamera.GetComponent<shake>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
@@ -60,6 +64,8 @@ public class BrickScript : MonoBehaviour
         //If its not a door then don't sendmessage
         if(!this.gameObject.CompareTag("Door"))
         transform.parent.SendMessage("ChangeCheckBricks", true);
+
+        Shake.setStart();
 
         Destroy(this.gameObject);
     }

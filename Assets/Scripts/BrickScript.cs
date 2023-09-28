@@ -8,7 +8,13 @@ public class BrickScript : MonoBehaviour
     [SerializeField] Sprite brokenBrick;
     [SerializeField] ParticleSystem brokenParticles;
     [SerializeField] GameObject enemyPrefab;
+
+
+
+
     private GameObject mainCamera;
+
+
     private shake Shake;
 
     SpriteRenderer spriteRenderer;
@@ -69,4 +75,5 @@ public class BrickScript : MonoBehaviour
 
         Destroy(this.gameObject);
     }
+
 }

@@ -5,6 +5,11 @@ using UnityEngine;
 //Located on the ball
 public class BallScript : MonoBehaviour
 {
+    [SerializeField] AudioClip ballToWall;
+    [SerializeField] AudioClip ballToBrick;
+    [SerializeField] AudioClip ballToEnemy;
+    AudioSource audio;
+
     //If with paddle is true follow the paddle and shoot forward when
     //player clicks
     [SerializeField] PauseControl pause; 
@@ -29,6 +34,7 @@ public class BallScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         wallBounce = 0;
     }
@@ -106,6 +112,24 @@ public class BallScript : MonoBehaviour
         Debug.Log("Collided; " + collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Wall"))
         {
+            audio.clip = ballToWall;
+            audio.Play();
+        }
+        if (collision.gameObject.CompareTag("Brick"))
+        {
+            audio.clip = ballToBrick;
+            audio.Play();
+        }
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            audio.clip = ballToEnemy;
+            audio.Play();
+        }
+
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            audio.clip = ballToWall;
+            audio.Play();
             wallBounce++;
             if (wallBounce >= bounceLimit)
             {
@@ -123,6 +147,7 @@ public class BallScript : MonoBehaviour
         }
         if (collision.gameObject.tag != "Wall")
         {
+            
             wallBounce = 0;
         }
     }

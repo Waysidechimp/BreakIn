@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd63d95914634a94a8f2db085672172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagedBrick: {fileID: 0}
-  brokenBrick: {fileID: 0}
-  brokenParticles: {fileID: 0}
+  damagedBrick: {fileID: 21300000, guid: 4a08030dd39e1844ab2d67d60d35d9bc, type: 3}
+  brokenBrick: {fileID: 21300000, guid: 7d8e6a90b86b8e546897a3622e2b9a1d, type: 3}
+  brokenParticles: {fileID: 8497551589641931803, guid: a46ef741ccd38854ba6109a5414bee54, type: 3}
   enemyPrefab: {fileID: 0}
   health: 12

@@ -18,6 +18,10 @@ public class PauseControl : MonoBehaviour
     [SerializeField] GameObject endBackground;
     [SerializeField] TimeScript time;
 
+    [SerializeField] GameObject lossUI;
+    [SerializeField] GameObject lossBackground;
+    private Text lostText;
+
     private Text resultsText;
     private BrickSpawner leftBrickSpawn;
     private BrickSpawner rightBrickSpawn;
@@ -33,6 +37,7 @@ public class PauseControl : MonoBehaviour
         rightBrickSpawn = rightWall.GetComponent<BrickSpawner>();
 
         resultsText = endUI.GetComponent<Text>();
+        lostText = lossUI.GetComponent<Text>();
     }
 
     public bool getGameIsPaused()
@@ -61,6 +66,18 @@ public class PauseControl : MonoBehaviour
         resultsText.text = "Time: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         endBackground.SetActive(true);
+        Time.timeScale = 0f;
+
+    }
+
+    public void loseGame()
+    {
+        string kills = GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
+        lostText.text = "Time: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
+        resultsShowing = true;
+        lossBackground.SetActive(true);
+        Time.timeScale = 0f;
+
     }
 
     void showPauseImage()
@@ -94,14 +111,15 @@ public class PauseControl : MonoBehaviour
             Time.timeScale = 1f;
         }
     }
-   
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
-            timeScript.addTime(5f);
+            timeScript.loseTime(5f);
 
             GameObject bill = Instantiate(billboard, collision.gameObject.transform.position, Quaternion.identity);
             bill.transform.position = new Vector3(bill.transform.position.x + 0.5f, bill.transform.position.y - 0.25f, bill.transform.position.z);

@@ -7,8 +7,9 @@ using UnityEngine.UI;
 //Located on the Time text UI
 public class TimeScript : MonoBehaviour
 {
-    //[SerializeField] GameObject camera;
-    [SerializeField] float currentTime = 0;
+    [SerializeField] float currentTime = 60.00f;
+    [SerializeField] PauseControl pauseControl;
+
     private Text TimeUI;
 
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class TimeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime += Time.deltaTime;
+        currentTime -= Time.deltaTime;
 
         string formattedTime = string.Format("{0}:{1:00}", (int)currentTime / 60, (int)currentTime % 60);
         TimeUI.text = formattedTime;
@@ -35,8 +36,23 @@ public class TimeScript : MonoBehaviour
     /// Adds time to the timer
     /// </summary>
     /// <param name="time"></param>
-    public void addTime(float time)
+    public void loseTime(float timeLost)
     {
-        currentTime += time;
+        currentTime -= timeLost;
+        if(currentTime <= 0)
+        {
+            //the end screen
+            pauseControl.loseGame();
+        }
     }
+
+    public void addTime(float timeLost)
+    {
+        currentTime += timeLost;
+    }
+
+
+
+
+
 }

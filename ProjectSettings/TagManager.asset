@@ -12,6 +12,7 @@ TagManager:
   - Paddle
   - KillCounter
   - Wall
+  - Time
   layers:
   - Default
   - TransparentFX

@@ -963,6 +963,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359907922}
   m_CullTransparentMesh: 1
+--- !u!1 &403696527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3009224801717341609, guid: 8af562b5c68dd43d88dba4317a219daa, type: 3}
+  m_PrefabInstance: {fileID: 1657691406920476600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &403696528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403696527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977af8e466aad4148b104f619431b9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damagedBrick: {fileID: 21300000, guid: 4a08030dd39e1844ab2d67d60d35d9bc, type: 3}
+  brokenBrick: {fileID: 21300000, guid: 7d8e6a90b86b8e546897a3622e2b9a1d, type: 3}
+  brokenParticles: {fileID: 8497551589641931803, guid: a46ef741ccd38854ba6109a5414bee54, type: 3}
+  enemyPrefab: {fileID: 0}
+  health: 12
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,15 +2281,15 @@ MonoBehaviour:
   brickPrefab: {fileID: 7049591399431835590, guid: b3969741361a64a2580e535736cf27b1, type: 3}
   windowPrefab: {fileID: 579944525181135938, guid: 36af8682b300a47b7b6a7cf296584960, type: 3}
   enemyPrefab: {fileID: 8162486679554931390, guid: b2566c9f4d5be45a8b2ae5fc0d3a60c2, type: 3}
-  rowNumber: 7
+  rowNumber: 5
   columnNumber: 5
-  rowbuffer: 0.863
-  columnbuffer: 2
+  rowbuffer: 0.819
+  columnbuffer: 1.733
   brickHealth: 3
   windowHealth: 1
-  enemySpawnChance: 15
+  enemySpawnChance: 30
   enemySpawnDelay: 4
-  enemyWaveNumber: 3
+  enemyWaveNumber: 2
   winFlag: 0
 --- !u!1 &1118580949 stripped
 GameObject:
@@ -3167,15 +3189,15 @@ MonoBehaviour:
   brickPrefab: {fileID: 7049591399431835590, guid: b3969741361a64a2580e535736cf27b1, type: 3}
   windowPrefab: {fileID: 579944525181135938, guid: 36af8682b300a47b7b6a7cf296584960, type: 3}
   enemyPrefab: {fileID: 8162486679554931390, guid: b2566c9f4d5be45a8b2ae5fc0d3a60c2, type: 3}
-  rowNumber: 7
+  rowNumber: 5
   columnNumber: 5
-  rowbuffer: 0.863
-  columnbuffer: 2
+  rowbuffer: 0.819
+  columnbuffer: 1.733
   brickHealth: 3
   windowHealth: 1
-  enemySpawnChance: 15
-  enemySpawnDelay: 2
-  enemyWaveNumber: 5
+  enemySpawnChance: 30
+  enemySpawnDelay: 4
+  enemyWaveNumber: 2
   winFlag: 0
 --- !u!1 &1448590783
 GameObject:
@@ -4313,10 +4335,14 @@ PrefabInstance:
       propertyPath: brokenParticles
       value: 
       objectReference: {fileID: 8497551589641931803, guid: 8c45c1edd0c73ac40843da1fe7f0985f, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8155188465090746513, guid: 8af562b5c68dd43d88dba4317a219daa, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3009224801717341609, guid: 8af562b5c68dd43d88dba4317a219daa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 403696528}
   m_SourcePrefab: {fileID: 100100000, guid: 8af562b5c68dd43d88dba4317a219daa, type: 3}
 --- !u!1001 &3773241023350503337
 PrefabInstance:

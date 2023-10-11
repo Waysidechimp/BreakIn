@@ -100,8 +100,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   invulnerability: 0.5
+  timeScript: {fileID: 0}
+  additionalTime: 2
   explosion: {fileID: 1987407317711199008, guid: 413f5f5f618eb4656a9f27b57c7c99c5, type: 3}
-  textObject: {fileID: 7619607591843332473, guid: d70a7f74c4dba48e1a99bbf6401de969, type: 3}
+  clips:
+  - {fileID: 8300000, guid: c2c698236b73f88469eeaa7fc3af5cda, type: 3}
+  - {fileID: 8300000, guid: 2ff927b16e09983448df62bf1fa04d5f, type: 3}
+  - {fileID: 8300000, guid: 8662e56aa388a724283177469b0538e0, type: 3}
+  - {fileID: 8300000, guid: 938e800176f9df24dae7fcc770fc6b56, type: 3}
+  - {fileID: 8300000, guid: 1c4ca8129f315ba41b8dfdb1213c8e6c, type: 3}
+  - {fileID: 8300000, guid: ac1a07da73dc89f4db28cc81fc4a2f0a, type: 3}
+  - {fileID: 8300000, guid: 3521535cebf491b4ab0d5d5a8ceebca8, type: 3}
 --- !u!60 &2908523055124226939
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -109,7 +118,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8162486679554931390}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -147,7 +156,7 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -0.0046070144, y: 0.19605428}
-      - {x: -0.2157906, y: 0.009870004}
+      - {x: -0.21419287, y: 0.014079899}
       - {x: -0.21184333, y: -0.13618574}
       - {x: -0.18223709, y: -0.20526443}
       - {x: 0.14802752, y: -0.2065802}

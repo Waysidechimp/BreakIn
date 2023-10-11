@@ -13,6 +13,9 @@ public class BrickScript : MonoBehaviour
     AudioSource audio;
 
     private GameObject mainCamera;
+    
+
+
 
     private GameObject scoreObject;
     private Text scoreText;

@@ -22,11 +22,8 @@ public class EnemyScript : MonoBehaviour
     {
         polygon = gameObject.GetComponent<PolygonCollider2D>();
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
-<<<<<<< HEAD
         currentClip = clips[Random.Range(0, clips.Count-1)];
-=======
         scoreText = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<Text>();
->>>>>>> UIUpdateOne
     }
 
     private void Awake()

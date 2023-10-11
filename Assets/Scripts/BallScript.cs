@@ -8,6 +8,7 @@ public class BallScript : MonoBehaviour
     [SerializeField] AudioClip ballToWall;
     [SerializeField] AudioClip ballToBrick;
     [SerializeField] AudioClip ballToEnemy;
+    [SerializeField] AudioClip ballToDoor;
     AudioSource audio;
 
     //If with paddle is true follow the paddle and shoot forward when
@@ -123,6 +124,11 @@ public class BallScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             audio.clip = ballToEnemy;
+            audio.Play();
+        }
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            audio.clip = ballToDoor;
             audio.Play();
         }
 

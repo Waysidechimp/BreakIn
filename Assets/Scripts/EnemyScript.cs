@@ -11,6 +11,8 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float additionalTime = 1f;
     private PolygonCollider2D polygon;
     [SerializeField] ParticleSystem explosion;
+    [SerializeField] List<AudioClip> clips;
+    AudioClip currentClip;
     private GameObject textObject;
     private Text deathText;
     private Text scoreText;
@@ -21,7 +23,11 @@ public class EnemyScript : MonoBehaviour
     {
         polygon = gameObject.GetComponent<PolygonCollider2D>();
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
+<<<<<<< HEAD
         scoreText = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<Text>();
+=======
+        currentClip = clips[Random.Range(0, clips.Count-1)];
+>>>>>>> b647893b61728723718514b218e00686d6aee8b9
     }
 
     private void Awake()

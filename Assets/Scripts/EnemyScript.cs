@@ -8,20 +8,17 @@ public class EnemyScript : MonoBehaviour
     float speed=5;
     [SerializeField] float invulnerability = 0.5f;
     [SerializeField] TimeScript timeScript;
-    [SerializeField] float additionalTime = 1f;
+    [SerializeField] float additionalTime = 2f;
     private PolygonCollider2D polygon;
     [SerializeField] ParticleSystem explosion;
     private GameObject textObject;
     private Text deathText;
-    private Text scoreText;
-
 
     // Start is called before the first frame update
     void Start()
     {
         polygon = gameObject.GetComponent<PolygonCollider2D>();
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
-        scoreText = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<Text>();
     }
 
     private void Awake()
@@ -47,7 +44,6 @@ public class EnemyScript : MonoBehaviour
             ParticleSystem debris = Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
             addDeathCount();
-            addScore(1);
             timeScript.addTime(additionalTime);
             Destroy(this.gameObject);
         }
@@ -60,11 +56,6 @@ public class EnemyScript : MonoBehaviour
         deathText.text = currentDeaths.ToString();
     }
 
-    private void addScore (int additionalScore)
-    {
-        int newScore = int.Parse(scoreText.text) + additionalScore;
-        scoreText.text = newScore.ToString();
-    }
 
 
     private void iFrame()

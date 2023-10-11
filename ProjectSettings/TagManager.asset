@@ -13,7 +13,6 @@ TagManager:
   - KillCounter
   - Wall
   - Time
-  - ScoreCounter
   layers:
   - Default
   - TransparentFX

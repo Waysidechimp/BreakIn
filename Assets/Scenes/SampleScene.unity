@@ -1192,6 +1192,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526541690}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of b647893 (Added Audio)
 --- !u!1 &549644947
 GameObject:
   m_ObjectHideFlags: 0

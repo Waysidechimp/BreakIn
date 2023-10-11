@@ -9,15 +9,22 @@ public class BrickScript : MonoBehaviour
     [SerializeField] ParticleSystem brokenParticles;
     [SerializeField] GameObject enemyPrefab;
 
+<<<<<<< HEAD
     
 
+=======
+
+>>>>>>> parent of b647893 (Added Audio)
 
 
     private GameObject mainCamera;
 
+<<<<<<< HEAD
     private GameObject scoreObject;
     private Text scoreText;
     private TimeScript timeScript;
+=======
+>>>>>>> parent of b647893 (Added Audio)
 
     private shake Shake;
 

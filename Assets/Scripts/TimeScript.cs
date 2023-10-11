@@ -16,6 +16,7 @@ public class TimeScript : MonoBehaviour
     void Start()
     {
         TimeUI = gameObject.GetComponent<Text>();
+        
     }
 
     public string getCurrentTime()
@@ -30,6 +31,13 @@ public class TimeScript : MonoBehaviour
 
         string formattedTime = string.Format("{0}:{1:00}", (int)currentTime / 60, (int)currentTime % 60);
         TimeUI.text = formattedTime;
+
+        if (currentTime <= 0)
+        {
+            //the end screen
+            Debug.Log(currentTime);
+            pauseControl.loseGame();
+        }
     }
 
     /// <summary>
@@ -39,16 +47,30 @@ public class TimeScript : MonoBehaviour
     public void loseTime(float timeLost)
     {
         currentTime -= timeLost;
-        if(currentTime <= 0)
-        {
-            //the end screen
-            pauseControl.loseGame();
-        }
+        StartCoroutine(turnRed());
+        
     }
 
     public void addTime(float timeLost)
     {
         currentTime += timeLost;
+        StartCoroutine(turnGreen());
+    }
+
+    private IEnumerator turnGreen()
+    {
+        TimeUI.color = Color.green;
+        yield return new WaitForSeconds(0.2f);
+        TimeUI.color = Color.white;
+
+    }
+
+    private IEnumerator turnRed()
+    {
+        TimeUI.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        TimeUI.color = Color.white;
+
     }
 
 

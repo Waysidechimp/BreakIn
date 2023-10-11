@@ -58,6 +58,8 @@ public class PauseControl : MonoBehaviour
 
         if (rightBrickSpawn.winFlag && leftBrickSpawn.winFlag && !resultsShowing)
             winGame();
+
+
     }
 
     void winGame()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BrickScript : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class BrickScript : MonoBehaviour
 
     private GameObject mainCamera;
 
+    private GameObject scoreObject;
+    private Text scoreText;
+    private TimeScript timeScript;
+
     private shake Shake;
 
     SpriteRenderer spriteRenderer;
@@ -20,7 +25,12 @@ public class BrickScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scoreObject = GameObject.FindGameObjectWithTag("ScoreCounter");
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
+
+
+        scoreText = scoreObject.GetComponent<Text>();
         Shake = mainCamera.GetComponent<shake>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -74,7 +84,16 @@ public class BrickScript : MonoBehaviour
 
         Shake.setStart();
 
+        addScore(15);
+        timeScript.addTime(5f);
+
         Destroy(this.gameObject);
+    }
+
+    private void addScore(int additionalScore)
+    {
+        int newScore = int.Parse(scoreText.text) + additionalScore;
+        scoreText.text = newScore.ToString();
     }
 
 }

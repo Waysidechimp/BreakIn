@@ -9,7 +9,6 @@ public class BrickScript : MonoBehaviour
     [SerializeField] Sprite brokenBrick;
     [SerializeField] ParticleSystem brokenParticles;
     [SerializeField] GameObject enemyPrefab;
-<<<<<<< HEAD
     
 
 
@@ -18,12 +17,6 @@ public class BrickScript : MonoBehaviour
     private GameObject scoreObject;
     private Text scoreText;
     private TimeScript timeScript;
-=======
-    [SerializeField] AudioClip breakBreak;
-    AudioSource audio;
-
-    private GameObject mainCamera;
->>>>>>> b647893b61728723718514b218e00686d6aee8b9
 
     private shake Shake;
 
@@ -70,8 +63,6 @@ public class BrickScript : MonoBehaviour
             if (health <= 0)
             {
                 //Instantiate(enemyPrefab, gameObject.transform.position, Quaternion.identity);
-
-                AudioSource.PlayClipAtPoint(breakBreak, transform.position);
                 BrickDie();
             }
         }

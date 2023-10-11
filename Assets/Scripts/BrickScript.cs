@@ -9,11 +9,15 @@ public class BrickScript : MonoBehaviour
     [SerializeField] ParticleSystem brokenParticles;
     [SerializeField] GameObject enemyPrefab;
 
+    
 
 
 
     private GameObject mainCamera;
 
+    private GameObject scoreObject;
+    private Text scoreText;
+    private TimeScript timeScript;
 
     private shake Shake;
 

@@ -19,6 +19,7 @@ public class EnemyScript : MonoBehaviour
     {
         polygon = gameObject.GetComponent<PolygonCollider2D>();
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
+        scoreText = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<Text>();
     }
 
     private void Awake()

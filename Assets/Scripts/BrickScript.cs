@@ -10,8 +10,12 @@ public class BrickScript : MonoBehaviour
     [SerializeField] GameObject enemyPrefab;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 
+=======
+
+>>>>>>> parent of b647893 (Added Audio)
 =======
 
 >>>>>>> parent of b647893 (Added Audio)
@@ -20,9 +24,12 @@ public class BrickScript : MonoBehaviour
     private GameObject mainCamera;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private GameObject scoreObject;
     private Text scoreText;
     private TimeScript timeScript;
+=======
+>>>>>>> parent of b647893 (Added Audio)
 =======
 >>>>>>> parent of b647893 (Added Audio)
 

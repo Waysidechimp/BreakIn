@@ -20,7 +20,10 @@ public class EnemyScript : MonoBehaviour
         polygon = gameObject.GetComponent<PolygonCollider2D>();
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
 <<<<<<< HEAD
+<<<<<<< HEAD
         scoreText = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<Text>();
+=======
+>>>>>>> parent of b647893 (Added Audio)
 =======
 >>>>>>> parent of b647893 (Added Audio)
     }

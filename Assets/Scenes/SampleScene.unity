@@ -1113,6 +1113,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &526541690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,6 +1194,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526541690}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> parent of b647893 (Added Audio)
 =======
 >>>>>>> parent of b647893 (Added Audio)
 --- !u!1 &549644947

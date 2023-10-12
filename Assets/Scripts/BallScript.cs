@@ -8,6 +8,7 @@ public class BallScript : MonoBehaviour
     [SerializeField] AudioClip ballToWall;
     [SerializeField] AudioClip ballToBrick;
     [SerializeField] AudioClip ballToEnemy;
+    [SerializeField] AudioClip ballToDoor;
     AudioSource audio;
 
     //If with paddle is true follow the paddle and shoot forward when
@@ -23,12 +24,15 @@ public class BallScript : MonoBehaviour
     int wallBounce;
     [SerializeField]
     int bounceLimit = 4;
-
-
-
-    //temp
     [SerializeField]
-    float upndown;
+    float maxSpeed = 10.5f;
+    [SerializeField]
+    float minSpeed = 9.5f;
+
+    
+
+    int combo;
+    public int damage;
 
 
     // Start is called before the first frame update
@@ -37,6 +41,8 @@ public class BallScript : MonoBehaviour
         audio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         wallBounce = 0;
+        combo = 0;
+        damage = 0;
     }
 
     // Update is called once per frame
@@ -44,16 +50,26 @@ public class BallScript : MonoBehaviour
     {
         if (withPaddle)
             followPaddle();
+        else
+        {
+            if (speedInUnitPerSecond > maxSpeed)
+            {
+                rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
+            }
+            else if (speedInUnitPerSecond < minSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * minSpeed;
+            }
+        }
 
-
-        if(!pause.getGameIsPaused() && withPaddle)
+        if (!pause.getGameIsPaused() && withPaddle)
         fireBall();
 
         
 
         
         
-        upndown = rb.velocity.y;
+        
         speedInUnitPerSecond = rb.velocity.magnitude;
 
     }
@@ -102,6 +118,7 @@ public class BallScript : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             withPaddle = true;
+            resetCombo();
         }
         
     }
@@ -119,11 +136,22 @@ public class BallScript : MonoBehaviour
         {
             audio.clip = ballToBrick;
             audio.Play();
+            addCombo();
+            //float center= transform.renderer.bounds.center
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
             audio.clip = ballToEnemy;
             audio.Play();
+            addCombo();
+            Debug.Log(combo);
+        }
+        if (collision.gameObject.CompareTag("Door"))
+        {
+            audio.clip = ballToDoor;
+            audio.Play();
+            addCombo();
+            Debug.Log(combo);
         }
 
         if (collision.gameObject.CompareTag("Wall"))
@@ -151,4 +179,19 @@ public class BallScript : MonoBehaviour
             wallBounce = 0;
         }
     }
+
+    private void addCombo() {
+        combo++;
+        if (combo >= 5) {
+            damage = 1;
+        }
+        else if (combo>=10) {
+            damage = 2;
+        }
+    }
+    private void resetCombo() {
+        combo = 0;
+        damage = 0;
+    }
+
 }

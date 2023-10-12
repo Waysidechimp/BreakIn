@@ -1152,14 +1152,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359907922}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD
 --- !u!1 &403696527 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3009224801717341609, guid: 8af562b5c68dd43d88dba4317a219daa, type: 3}
   m_PrefabInstance: {fileID: 1657691406920476600}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &403696528
-=======
 --- !u!1 &404351001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,13 +1198,11 @@ RectTransform:
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &404351003
->>>>>>> 5d8d141f70b41be86e3e5e337e9a1bdb24c4d9de
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 403696527}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1218,7 +1214,6 @@ MonoBehaviour:
   brokenParticles: {fileID: 8497551589641931803, guid: a46ef741ccd38854ba6109a5414bee54, type: 3}
   enemyPrefab: {fileID: 0}
   health: 12
-=======
   m_GameObject: {fileID: 404351001}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1711,7 +1706,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 510890275}
   m_CullTransparentMesh: 1
->>>>>>> 5d8d141f70b41be86e3e5e337e9a1bdb24c4d9de
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

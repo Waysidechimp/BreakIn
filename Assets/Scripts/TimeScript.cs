@@ -24,6 +24,11 @@ public class TimeScript : MonoBehaviour
         return TimeUI.text;
     }
 
+    public float getTime()
+    {
+        return currentTime;
+    }
+
     // Update is called once per frame
     void Update()
     {

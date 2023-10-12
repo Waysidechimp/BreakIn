@@ -7,7 +7,6 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float speed=5;
     [SerializeField] float invulnerability = 0.5f;
     [SerializeField] TimeScript timeScript;
-    [SerializeField] float additionalTime = 1f;
     private PolygonCollider2D polygon;
     [SerializeField] ParticleSystem explosion;
     [SerializeField] List<AudioClip> clips;
@@ -51,7 +50,6 @@ public class EnemyScript : MonoBehaviour
             debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
             addDeathCount();
             addScore(1);
-            timeScript.addTime(additionalTime);
             Destroy(this.gameObject);
         }
     }

@@ -20,12 +20,14 @@ public class PauseControl : MonoBehaviour
 
     [SerializeField] GameObject lossUI;
     [SerializeField] GameObject lossBackground;
+    [SerializeField] GameObject ScoreAmount;
     private Text lostText;
-
+    private Text scoreText;
     private Text resultsText;
     private BrickSpawner leftBrickSpawn;
     private BrickSpawner rightBrickSpawn;
     private bool resultsShowing;
+
 
     private bool isMenuUp = true;
     // Start is called before the first frame update
@@ -36,6 +38,7 @@ public class PauseControl : MonoBehaviour
         leftBrickSpawn = leftWall.GetComponent<BrickSpawner>();
         rightBrickSpawn = rightWall.GetComponent<BrickSpawner>();
 
+        scoreText = ScoreAmount.GetComponent<Text>();
         resultsText = endUI.GetComponent<Text>();
         lostText = lossUI.GetComponent<Text>();
     }
@@ -65,7 +68,7 @@ public class PauseControl : MonoBehaviour
     void winGame()
     {
         string kills = GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
-        resultsText.text = "Time: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
+        resultsText.text = "Final Score: " + formatScore()+ "\nTime: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         endBackground.SetActive(true);
         Time.timeScale = 0f;
@@ -75,17 +78,24 @@ public class PauseControl : MonoBehaviour
     public void loseGame()
     {
         string kills = GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
-        lostText.text = "Time: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
+        lostText.text = "Final Score: " + formatScore() + "\nTime: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         lossBackground.SetActive(true);
         Time.timeScale = 0f;
 
     }
 
+    private int formatScore()
+    {
+        int result = (int)(float.Parse(scoreText.text) * time.getTime());
+        return result;
+    }
+
     void showPauseImage()
     {
         if (getGameIsPaused())
         {
+            Debug.Log(formatScore());
             pauseImage.SetActive(true);
         }
         else

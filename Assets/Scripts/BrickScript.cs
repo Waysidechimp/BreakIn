@@ -23,6 +23,10 @@ public class BrickScript : MonoBehaviour
 
     private shake Shake;
 
+    //public ComboScript combo;
+
+    private BallScript myBall;
+
     SpriteRenderer spriteRenderer;
     [SerializeField] int health = 0;
     // Start is called before the first frame update
@@ -31,6 +35,8 @@ public class BrickScript : MonoBehaviour
         scoreObject = GameObject.FindGameObjectWithTag("ScoreCounter");
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
+
+        myBall = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallScript>();
 
 
         scoreText = scoreObject.GetComponent<Text>();
@@ -54,7 +60,7 @@ public class BrickScript : MonoBehaviour
         //Brick changes sprite based on it's health
         if (collision.gameObject.CompareTag("Ball"))
         {
-            --health;
+            health= health-1-myBall.damage;
             if (health == 2 && damagedBrick != null)
             {
                 spriteRenderer.sprite = damagedBrick;

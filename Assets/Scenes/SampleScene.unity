@@ -2193,6 +2193,7 @@ GameObject:
   - component: {fileID: 571137338}
   - component: {fileID: 571137341}
   - component: {fileID: 571137343}
+  - component: {fileID: 571137344}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -2451,6 +2452,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &571137344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571137337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467dbb2f6fcd440eb9f7f4621ad8a156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &571636272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4776,7 +4789,7 @@ MonoBehaviour:
   brickPrefab: {fileID: 7049591399431835590, guid: b3969741361a64a2580e535736cf27b1, type: 3}
   windowPrefab: {fileID: 579944525181135938, guid: 36af8682b300a47b7b6a7cf296584960, type: 3}
   enemyPrefab: {fileID: 8162486679554931390, guid: b2566c9f4d5be45a8b2ae5fc0d3a60c2, type: 3}
-  rowNumber: 1
+  rowNumber: 7
   columnNumber: 5
   rowbuffer: 0.819
   columnbuffer: 1.733

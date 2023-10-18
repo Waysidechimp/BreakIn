@@ -61,21 +61,35 @@ public class BrickScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             health= health-1-myBall.damage;
-            if (health == 2 && damagedBrick != null)
-            {
-                spriteRenderer.sprite = damagedBrick;
-            }
-            if (health == 1 && brokenBrick != null)
-            {
-                spriteRenderer.sprite = brokenBrick;
-            }
-            if (health <= 0)
-            {
-                //Instantiate(enemyPrefab, gameObject.transform.position, Quaternion.identity);
+            updateBrickSprites();
+        }
+    }
 
-                AudioSource.PlayClipAtPoint(breakBreak, transform.position);
-                BrickDie();
-            }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            health -= 1;
+            updateBrickSprites();
+        }
+    }
+
+    private void updateBrickSprites()
+    {
+        if (health == 2 && damagedBrick != null)
+        {
+            spriteRenderer.sprite = damagedBrick;
+        }
+        if (health == 1 && brokenBrick != null)
+        {
+            spriteRenderer.sprite = brokenBrick;
+        }
+        if (health <= 0)
+        {
+            //Instantiate(enemyPrefab, gameObject.transform.position, Quaternion.identity);
+
+            AudioSource.PlayClipAtPoint(breakBreak, transform.position);
+            BrickDie();
         }
     }
 

@@ -54,6 +54,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+
     private void addDeathCount()
     {
 

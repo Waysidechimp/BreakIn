@@ -11,6 +11,8 @@ public class BallScript : MonoBehaviour
     [SerializeField] AudioClip ballToDoor;
     AudioSource audio;
 
+    private TrailRenderer trailRenderer;
+
     //If with paddle is true follow the paddle and shoot forward when
     //player clicks
     [SerializeField] PauseControl pause; 
@@ -31,7 +33,7 @@ public class BallScript : MonoBehaviour
 
     
 
-    int combo;
+    public int combo;
     public int damage;
 
 
@@ -40,6 +42,7 @@ public class BallScript : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
+        trailRenderer = GetComponent<TrailRenderer>();
         wallBounce = 0;
         combo = 0;
         damage = 0;
@@ -186,14 +189,20 @@ public class BallScript : MonoBehaviour
         combo++;
         if (combo >= 5) {
             damage = 1;
+            trailRenderer.startColor = new Color(1f, 0.5f, 0f, 1.0f);//Orange
+            trailRenderer.endColor = new Color(1f, 1f, 0f, 1.0f);//Yellow
         }
-        else if (combo>=10) {
+        if (combo>=10) {
             damage = 2;
+            trailRenderer.startColor = new Color(1f, 0f, 0f, 1.0f);//Red
+            trailRenderer.endColor = new Color(1f, 0.5f, 0f, 1.0f);//Orange
         }
     }
     private void resetCombo() {
         combo = 0;
         damage = 0;
+        trailRenderer.startColor = new Color(1f, 1f, 0f, 1.0f);//Yellow
+        trailRenderer.endColor = new Color(1f, 1f, 1f, 1.0f);//White
     }
 
 }

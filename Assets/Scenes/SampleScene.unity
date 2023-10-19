@@ -652,7 +652,6 @@ MonoBehaviour:
   rightWall: {fileID: 1398108053}
   endUI: {fileID: 1664012745}
   endBackground: {fileID: 1035477144}
-  time: {fileID: 304028903}
   lossUI: {fileID: 810706926}
   lossBackground: {fileID: 1395494350}
   ScoreAmount: {fileID: 1176868594}
@@ -2464,6 +2463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467dbb2f6fcd440eb9f7f4621ad8a156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGhostBall: 0
+  ballSprite: {fileID: 0}
 --- !u!1 &571636272
 GameObject:
   m_ObjectHideFlags: 0
@@ -7139,6 +7140,10 @@ PrefabInstance:
     - target: {fileID: 3373090407247860368, guid: f53dc9648d0b64e85af120acdf2ecc6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6321765698086629181, guid: f53dc9648d0b64e85af120acdf2ecc6a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6413731727322377719, guid: f53dc9648d0b64e85af120acdf2ecc6a, type: 3}
       propertyPath: m_Name

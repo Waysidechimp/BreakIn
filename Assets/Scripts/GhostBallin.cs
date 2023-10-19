@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class GhostBallin : MonoBehaviour
 {
-    bool isGhostBall = false;
+    public bool isGhostBall = false;
+    [SerializeField] GameObject ballSprite;
+    SpriteRenderer ballRenderer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        // 235
+        ballSprite = gameObject.transform.GetChild(0).gameObject;
+        ballRenderer = ballSprite.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("g"))
-        {
-            isGhostBall = !isGhostBall;
-            updateBallTag();
-        }
+        updateBallTag();
 
+        if (gameObject.transform.position.y <= -3.3 && isGhostBall)
+        {
+            isGhostBall = false;
+            GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
+            ballRenderer.color = new Color(ballRenderer.color.r, ballRenderer.color.g, ballRenderer.color.b, 1f);
+            unTriggerBricks(bricks);
+        }
 
     }
 
@@ -27,13 +34,9 @@ public class GhostBallin : MonoBehaviour
     {
         if (isGhostBall)
         {
+            ballRenderer.color = new Color(ballRenderer.color.r, ballRenderer.color.g, ballRenderer.color.b , 0.7f);
             GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
             triggerBricks(bricks);
-        }
-        else
-        {
-            GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
-            unTriggerBricks(bricks);
         }
     }
 

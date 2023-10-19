@@ -10,6 +10,9 @@ public class BrickScript : MonoBehaviour
     [SerializeField] ParticleSystem brokenParticles;
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] AudioClip breakBreak;
+
+    [SerializeField] GameObject ghostPowerUp;
+
     AudioSource audio;
 
     private GameObject mainCamera;
@@ -96,6 +99,7 @@ public class BrickScript : MonoBehaviour
     //Handles everything that should happen upon death of brick
     void BrickDie()
     {
+        SpawnPowerup();
         ParticleSystem debris = Instantiate(brokenParticles, this.gameObject.transform);
         debris.transform.SetParent(null);
         debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
@@ -117,6 +121,34 @@ public class BrickScript : MonoBehaviour
     {
         int newScore = int.Parse(scoreText.text) + additionalScore;
         scoreText.text = newScore.ToString();
+    }
+
+    void SpawnPowerup()
+    {
+        if(Random.Range(0, 100) <= 25)
+        {
+            int powerUpDecision = Random.Range(0, 5);
+            switch (powerUpDecision)
+            {
+                case 1:
+                    //Ghost Powerup
+                    Instantiate(ghostPowerUp, transform.position, Quaternion.identity);
+                    break;
+                case 2:
+                    //Shotgun shot powerup
+                    Instantiate(ghostPowerUp, transform.position, Quaternion.identity);
+                    break;
+                case 3:
+                    //Explosive bullet powerup
+                    Instantiate(ghostPowerUp, transform.position, Quaternion.identity);
+                    break;
+                case 4:
+                    //Something
+                    Instantiate(ghostPowerUp, transform.position, Quaternion.identity);
+                    break;
+
+            }
+        }
     }
 
 }

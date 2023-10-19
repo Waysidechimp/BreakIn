@@ -16,7 +16,6 @@ public class PauseControl : MonoBehaviour
     [SerializeField] GameObject rightWall;
     [SerializeField] GameObject endUI;
     [SerializeField] GameObject endBackground;
-    [SerializeField] TimeScript time;
 
     [SerializeField] GameObject lossUI;
     [SerializeField] GameObject lossBackground;
@@ -68,7 +67,7 @@ public class PauseControl : MonoBehaviour
     void winGame()
     {
         string kills = GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
-        resultsText.text = "Final Score: " + formatScore()+ "\nTime: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
+        resultsText.text = "Final Score: " + formatScore()+ "\nTime: " + timeScript.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         endBackground.SetActive(true);
         Time.timeScale = 0f;
@@ -78,7 +77,7 @@ public class PauseControl : MonoBehaviour
     public void loseGame()
     {
         string kills = GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
-        lostText.text = "Final Score: " + formatScore() + "\nTime: " + time.getCurrentTime() + "\nEnemies Killed: " + kills;
+        lostText.text = "Final Score: " + formatScore() + "\nTime: " + timeScript.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         lossBackground.SetActive(true);
         Time.timeScale = 0f;
@@ -87,7 +86,15 @@ public class PauseControl : MonoBehaviour
 
     private int formatScore()
     {
-        int result = (int)(float.Parse(scoreText.text) * time.getTime());
+        int result;
+        if(timeScript.getTime() <= 0)
+        {
+            result = (int)(float.Parse(scoreText.text) * 1);
+        }
+        else
+        {
+            result = (int)(float.Parse(scoreText.text) * timeScript.getTime());
+        }
         return result;
     }
 

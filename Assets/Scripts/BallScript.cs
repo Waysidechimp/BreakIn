@@ -178,6 +178,8 @@ public class BallScript : MonoBehaviour
             
             wallBounce = 0;
         }
+
+
     }
 
     private void addCombo() {

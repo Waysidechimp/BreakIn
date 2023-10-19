@@ -104,6 +104,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 8162486679554931390, guid: b2566c9f4d5be45a8b2ae5fc0d3a60c2, type: 3}
   breakBreak: {fileID: 8300000, guid: 707f5debf4025b74c87c9d3d96de6fc4, type: 3}
   ghostPowerUp: {fileID: 8612387891965917, guid: d837e87265b014debb87e95e6374af9b, type: 3}
+  comboPowerUp: {fileID: 2904658282130523575, guid: 1cbf7dc0f7b20ec49bb8092a864a3c3a, type: 3}
   health: 0
 --- !u!60 &6269122212405591969
 PolygonCollider2D:

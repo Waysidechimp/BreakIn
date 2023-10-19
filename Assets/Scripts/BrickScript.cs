@@ -12,6 +12,7 @@ public class BrickScript : MonoBehaviour
     [SerializeField] AudioClip breakBreak;
 
     [SerializeField] GameObject ghostPowerUp;
+    [SerializeField] GameObject comboPowerUp;
 
     AudioSource audio;
 
@@ -72,7 +73,7 @@ public class BrickScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            health -= 1;
+            health -= 1 - myBall.damage;
             updateBrickSprites();
         }
     }
@@ -140,11 +141,13 @@ public class BrickScript : MonoBehaviour
                     break;
                 case 3:
                     //Explosive bullet powerup
-                    Instantiate(ghostPowerUp, transform.position, Quaternion.identity);
+                    Instantiate(comboPowerUp, transform.position, Quaternion.identity);
                     break;
                 case 4:
                     //Something
-                    Instantiate(ghostPowerUp, transform.position, Quaternion.identity);
+                    Instantiate(comboPowerUp, transform.position, Quaternion.identity);
+                    break;
+                case 5:
                     break;
 
             }

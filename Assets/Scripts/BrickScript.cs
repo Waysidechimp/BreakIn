@@ -13,6 +13,7 @@ public class BrickScript : MonoBehaviour
 
     [SerializeField] GameObject ghostPowerUp;
     [SerializeField] GameObject comboPowerUp;
+    [SerializeField] GameObject recallPowerup;
 
     AudioSource audio;
 
@@ -128,7 +129,9 @@ public class BrickScript : MonoBehaviour
     {
         if(Random.Range(0, 100) <= 25)
         {
-            int powerUpDecision = Random.Range(0, 5);
+            //0-5
+            //Set to 4 because no unique graphic for RecallPowerup
+            int powerUpDecision = Random.Range(0, 4);
             switch (powerUpDecision)
             {
                 case 1:
@@ -148,6 +151,8 @@ public class BrickScript : MonoBehaviour
                     Instantiate(comboPowerUp, transform.position, Quaternion.identity);
                     break;
                 case 5:
+                    //Recall Powerup
+                    Instantiate(recallPowerup, transform.position, Quaternion.identity);
                     break;
 
             }

@@ -35,6 +35,7 @@ public class BallScript : MonoBehaviour
 
     public int combo;
     public int damage;
+    public bool canRecall;
 
 
     // Start is called before the first frame update
@@ -46,6 +47,7 @@ public class BallScript : MonoBehaviour
         wallBounce = 0;
         combo = 0;
         damage = 0;
+        canRecall=false;
     }
 
     // Update is called once per frame
@@ -68,7 +70,10 @@ public class BallScript : MonoBehaviour
         if (!pause.getGameIsPaused() && withPaddle)
         fireBall();
 
-        
+        if(canRecall&& Input.GetKey("l")){
+            withPaddle=true;
+            resetCombo();
+        }
 
         
         

@@ -109,6 +109,7 @@ public class BallScript : MonoBehaviour
 
             //Always after the paddle is shot change it to not with paddle
             withPaddle = false;
+            resetCombo();
         }
     }
 
@@ -126,7 +127,6 @@ public class BallScript : MonoBehaviour
         {
             rb.velocity = Vector3.zero;
             withPaddle = true;
-            resetCombo();
         }
         
     }

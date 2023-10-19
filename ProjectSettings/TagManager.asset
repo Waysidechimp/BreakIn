@@ -15,6 +15,7 @@ TagManager:
   - Time
   - ScoreCounter
   - GhostBall
+  - Window
   layers:
   - Default
   - TransparentFX

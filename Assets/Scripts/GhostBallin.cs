@@ -10,7 +10,6 @@ public class GhostBallin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 235
         ballSprite = gameObject.transform.GetChild(0).gameObject;
         ballRenderer = ballSprite.GetComponent<SpriteRenderer>();
     }
@@ -23,9 +22,11 @@ public class GhostBallin : MonoBehaviour
         if (gameObject.transform.position.y <= -3.3 && isGhostBall)
         {
             isGhostBall = false;
-            GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
             ballRenderer.color = new Color(ballRenderer.color.r, ballRenderer.color.g, ballRenderer.color.b, 1f);
-            unTriggerBricks(bricks);
+
+            GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
+            GameObject[] windows = GameObject.FindGameObjectsWithTag("Window");
+            unTriggerBricks(bricks, windows);
         }
 
     }
@@ -34,26 +35,44 @@ public class GhostBallin : MonoBehaviour
     {
         if (isGhostBall)
         {
+            Debug.Log("I'm ghost ballin");
             ballRenderer.color = new Color(ballRenderer.color.r, ballRenderer.color.g, ballRenderer.color.b , 0.7f);
+
             GameObject[] bricks = GameObject.FindGameObjectsWithTag("Brick");
-            triggerBricks(bricks);
+            GameObject[] door = GameObject.FindGameObjectsWithTag("Door");
+            GameObject[] windows = GameObject.FindGameObjectsWithTag("Window");
+
+            triggerBricks(bricks, windows);
         }
     }
 
-    void triggerBricks(GameObject[] bricks)
+    void triggerBricks(GameObject[] bricks, GameObject[] window)
     {
         foreach(GameObject g in bricks)
         {
             g.GetComponent<PolygonCollider2D>().isTrigger = true;
         }
+        foreach (GameObject w in window)
+        {
+            w.GetComponent<BoxCollider2D>().isTrigger = true;
+
+        }
+
     }
 
-    void unTriggerBricks (GameObject[] bricks)
+    void unTriggerBricks (GameObject[] bricks, GameObject[] window)
     {
         foreach (GameObject g in bricks)
         {
             g.GetComponent<PolygonCollider2D>().isTrigger = false;
         }
+
+        foreach(GameObject w in window)
+        {
+            w.GetComponent<BoxCollider2D>().isTrigger = false;
+
+        }
+
     }
 
 

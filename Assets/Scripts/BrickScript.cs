@@ -74,7 +74,7 @@ public class BrickScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
-            health -= 1 - myBall.damage;
+            health -= 1;
             updateBrickSprites();
         }
     }
@@ -131,7 +131,7 @@ public class BrickScript : MonoBehaviour
         {
             //0-5
             //Set to 4 because no unique graphic for RecallPowerup
-            int powerUpDecision = Random.Range(0, 4);
+            int powerUpDecision = Random.Range(1, 5);
             switch (powerUpDecision)
             {
                 case 1:
@@ -140,7 +140,7 @@ public class BrickScript : MonoBehaviour
                     break;
                 case 2:
                     //Shotgun shot powerup
-                    Instantiate(ghostPowerUp, transform.position, Quaternion.identity);
+                    Instantiate(recallPowerup, transform.position, Quaternion.identity);
                     break;
                 case 3:
                     //Explosive bullet powerup
@@ -150,10 +150,10 @@ public class BrickScript : MonoBehaviour
                     //Something
                     Instantiate(comboPowerUp, transform.position, Quaternion.identity);
                     break;
-                case 5:
+                /*case 5:
                     //Recall Powerup
                     Instantiate(recallPowerup, transform.position, Quaternion.identity);
-                    break;
+                    break;*/
 
             }
         }

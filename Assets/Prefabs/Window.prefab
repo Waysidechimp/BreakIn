@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5296063580878617722}
   m_Layer: 0
   m_Name: Window
-  m_TagString: Untagged
+  m_TagString: Window
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -149,6 +149,9 @@ MonoBehaviour:
   brokenParticles: {fileID: 8497551589641931803, guid: 8c45c1edd0c73ac40843da1fe7f0985f, type: 3}
   enemyPrefab: {fileID: 8162486679554931390, guid: b2566c9f4d5be45a8b2ae5fc0d3a60c2, type: 3}
   breakBreak: {fileID: 8300000, guid: 707f5debf4025b74c87c9d3d96de6fc4, type: 3}
+  ghostPowerUp: {fileID: 0}
+  comboPowerUp: {fileID: 0}
+  recallPowerup: {fileID: 0}
   health: 0
 --- !u!82 &5296063580878617722
 AudioSource:

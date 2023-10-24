@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: 3
+  pickupSound: {fileID: 8300000, guid: 46a4f31352eb5c94ab1c23da8fc1d0ba, type: 3}

@@ -7,6 +7,8 @@ public class EnablePowerup : MonoBehaviour
     GameObject ball;
     GhostBallin ghost;
     [SerializeField] float fallSpeed;
+
+    [SerializeField] AudioClip pickupSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class EnablePowerup : MonoBehaviour
         if(collision.CompareTag("Paddle") || collision.CompareTag("Ball"))
         {
             ghost.isGhostBall = true;
+            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
             Destroy(this.gameObject);
         }
     }

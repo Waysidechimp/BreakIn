@@ -8,11 +8,12 @@ public class RecallPowerScript : MonoBehaviour
 
     GameObject ball;
     [SerializeField] float fallSpeed;
+
+    [SerializeField] AudioClip pickupSound;
     // Start is called before the first frame update
     void Start()
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
-
     }
 
     // Update is called once per frame
@@ -26,6 +27,7 @@ public class RecallPowerScript : MonoBehaviour
         if (collision.CompareTag("Paddle") || collision.CompareTag("Ball"))
         {
             ball.GetComponent<BallScript>().canRecall=true;
+            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
             Destroy(this.gameObject);
         }
     }

@@ -6,10 +6,12 @@ public class PowerComboScript : MonoBehaviour
 {
     GameObject ball;
     [SerializeField] float fallSpeed;
+    [SerializeField] AudioClip pickupSound;
     // Start is called before the first frame update
     void Start()
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
+
     }
 
     private void Update()
@@ -22,6 +24,7 @@ public class PowerComboScript : MonoBehaviour
         {
             ball.GetComponent<BallScript>().combo = 11;
             ball.GetComponent<BallScript>().damage = 2;
+            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
             Destroy(this.gameObject);
         }
     }

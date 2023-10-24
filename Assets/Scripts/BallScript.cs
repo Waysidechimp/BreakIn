@@ -5,6 +5,7 @@ using UnityEngine;
 //Located on the ball
 public class BallScript : MonoBehaviour
 {
+    [Header("Sounds")]
     [SerializeField] AudioClip ballToWall;
     [SerializeField] AudioClip ballToBrick;
     [SerializeField] AudioClip ballToEnemy;

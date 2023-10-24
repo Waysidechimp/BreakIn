@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallSpeed: 3
+  pickupSound: {fileID: 8300000, guid: 0ef86265ac74f76449af280247b768df, type: 3}
 --- !u!58 &-3715042668439554241
 CircleCollider2D:
   m_ObjectHideFlags: 0

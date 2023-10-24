@@ -15,7 +15,6 @@ public class BrickScript : MonoBehaviour
     [SerializeField] GameObject comboPowerUp;
     [SerializeField] GameObject recallPowerup;
 
-    AudioSource audio;
 
     private GameObject mainCamera;
     
@@ -42,7 +41,6 @@ public class BrickScript : MonoBehaviour
         timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
 
         myBall = GameObject.FindGameObjectWithTag("Ball").GetComponent<BallScript>();
-
 
         scoreText = scoreObject.GetComponent<Text>();
         Shake = mainCamera.GetComponent<shake>();

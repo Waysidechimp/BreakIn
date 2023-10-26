@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Located on the ball
 public class BallScript : MonoBehaviour
@@ -12,11 +13,13 @@ public class BallScript : MonoBehaviour
     [SerializeField] AudioClip ballToDoor;
     AudioSource audio;
 
+
     private TrailRenderer trailRenderer;
 
     //If with paddle is true follow the paddle and shoot forward when
     //player clicks
-    [SerializeField] PauseControl pause; 
+    [SerializeField] PauseControl pause;
+
     [SerializeField] bool withPaddle = true;
     [SerializeField] GameObject paddle;
     private Rigidbody2D rb;
@@ -32,23 +35,28 @@ public class BallScript : MonoBehaviour
     [SerializeField]
     float minSpeed = 9.5f;
 
-    
+    int recallAmount = 0;
+    string currentPowerUp = "None";
 
     public int combo;
     public int damage;
     public bool canRecall;
 
+    GhostBallin ghostBallin;
+    [SerializeField] GameObject powerUpText;
+    [SerializeField] GameObject recallText;
 
     // Start is called before the first frame update
     void Start()
     {
+        ghostBallin = GetComponent<GhostBallin>();
         audio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         trailRenderer = GetComponent<TrailRenderer>();
         wallBounce = 0;
         combo = 0;
         damage = 0;
-        canRecall=false;
+        canRecall = false;
     }
 
     // Update is called once per frame
@@ -69,15 +77,13 @@ public class BallScript : MonoBehaviour
         }
 
         if (!pause.getGameIsPaused() && withPaddle)
-        fireBall();
+            fireBall();
 
-        if(canRecall&& Input.GetKey("l")){
-            withPaddle=true;
-            resetCombo();
-        }
+        if (Input.GetKeyDown("l"))
+            recall();
 
-        
-        
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+            usePowerUp();
         
         speedInUnitPerSecond = rb.velocity.magnitude;
 
@@ -91,7 +97,7 @@ public class BallScript : MonoBehaviour
 
     void fireBall()
     {
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("up") || Input.GetKeyDown("space")){
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up") || Input.GetKeyDown("space")) {
 
             if (Input.GetAxis("Horizontal") < -0.2) //left
             {
@@ -129,9 +135,9 @@ public class BallScript : MonoBehaviour
             rb.velocity = Vector3.zero;
             withPaddle = true;
         }
-        
+
     }
-  
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -179,26 +185,29 @@ public class BallScript : MonoBehaviour
                         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y - 1f);
                     }
                 }
-                
+
             }
         }
         if (collision.gameObject.tag != "Wall")
         {
-            
+
             wallBounce = 0;
         }
 
 
     }
 
+    //Power Up Stuff
+
     private void addCombo() {
-        combo++;
+        if (!withPaddle)
+            combo++;
         if (combo >= 5) {
             damage = 1;
             trailRenderer.startColor = new Color(1f, 0.5f, 0f, 1.0f);//Orange
             trailRenderer.endColor = new Color(1f, 1f, 0f, 1.0f);//Yellow
         }
-        if (combo>=10) {
+        if (combo >= 10) {
             damage = 2;
             trailRenderer.startColor = new Color(1f, 0f, 0f, 1.0f);//Red
             trailRenderer.endColor = new Color(1f, 0.5f, 0f, 1.0f);//Orange
@@ -209,6 +218,71 @@ public class BallScript : MonoBehaviour
         damage = 0;
         trailRenderer.startColor = new Color(1f, 1f, 0f, 1.0f);//Yellow
         trailRenderer.endColor = new Color(1f, 1f, 1f, 1.0f);//White
+    }
+
+    private void recall()
+    {
+        if(recallAmount != 0)
+        {
+            withPaddle = true;
+            resetCombo();
+            updateRecall(-1);
+        }
+    }
+
+    private void usePowerUp()
+    {
+        if(currentPowerUp != "None")
+        switch (currentPowerUp)
+        {
+            case "Ghost":
+                //use ghost script
+                ghostBallin.isGhostBall = true;
+                break;
+
+            case "Shotgun":
+                //use shotgun
+
+                break;
+            case "Combo":
+                useCombo();
+                break;
+        }
+
+        currentPowerUp = "None";
+        updatePowerUpName();
+    }
+
+    private void updatePowerUpName()
+    {
+        powerUpText.GetComponent<Text>().text = currentPowerUp;
+    }
+
+    private void updateRecallText()
+    {
+        recallText.GetComponent<Text>().text = "Recall Amount:\n"+recallAmount;
+    }
+
+    public void useCombo()
+    {
+            combo = 11;
+            damage = 2;
+    }
+
+    public void powerUpUpdate(string powerUp){
+        if (currentPowerUp == "None")
+        {
+            currentPowerUp = powerUp;
+        }
+        updatePowerUpName();
+
+    }
+
+    public void updateRecall(int add)
+    {
+        recallAmount += add;
+        updateRecallText();
+        
     }
 
 }

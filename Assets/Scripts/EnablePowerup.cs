@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnablePowerup : MonoBehaviour
 {
     GameObject ball;
-    GhostBallin ghost;
     [SerializeField] float fallSpeed;
 
     [SerializeField] AudioClip pickupSound;
@@ -13,7 +12,6 @@ public class EnablePowerup : MonoBehaviour
     void Start()
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
-        ghost = ball.GetComponent<GhostBallin>();
     }
 
     private void Update()
@@ -24,8 +22,7 @@ public class EnablePowerup : MonoBehaviour
     {
         if(collision.CompareTag("Paddle") || collision.CompareTag("Ball"))
         {
-            ghost.isGhostBall = true;
-            AudioSource.PlayClipAtPoint(pickupSound, transform.position);
+            ball.GetComponent<BallScript>().powerUpUpdate(gameObject.tag);
             Destroy(this.gameObject);
         }
     }

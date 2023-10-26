@@ -26,7 +26,7 @@ public class RecallPowerScript : MonoBehaviour
     {
         if (collision.CompareTag("Paddle") || collision.CompareTag("Ball"))
         {
-            ball.GetComponent<BallScript>().canRecall=true;
+            ball.GetComponent<BallScript>().updateRecall(1);
             AudioSource.PlayClipAtPoint(pickupSound, transform.position);
             Destroy(this.gameObject);
         }

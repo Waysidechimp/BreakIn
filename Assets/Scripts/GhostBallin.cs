@@ -76,4 +76,11 @@ public class GhostBallin : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        
+    }
+
+
 }

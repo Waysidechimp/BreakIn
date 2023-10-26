@@ -9,6 +9,9 @@ public class TimeScript : MonoBehaviour
 {
     [SerializeField] float currentTime = 60.00f;
     [SerializeField] PauseControl pauseControl;
+    [SerializeField] Color defaultColor;
+    [SerializeField] Color SuccessColor;
+    [SerializeField] Color FailColor;
 
     private Text TimeUI;
 
@@ -64,17 +67,17 @@ public class TimeScript : MonoBehaviour
 
     private IEnumerator turnGreen()
     {
-        TimeUI.color = Color.green;
+        TimeUI.color = SuccessColor;
         yield return new WaitForSeconds(0.2f);
-        TimeUI.color = Color.white;
+        TimeUI.color = defaultColor;
 
     }
 
     private IEnumerator turnRed()
     {
-        TimeUI.color = Color.red;
+        TimeUI.color = FailColor;
         yield return new WaitForSeconds(0.2f);
-        TimeUI.color = Color.white;
+        TimeUI.color = defaultColor;
 
     }
 

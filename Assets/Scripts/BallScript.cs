@@ -79,10 +79,10 @@ public class BallScript : MonoBehaviour
         if (!pause.getGameIsPaused() && withPaddle)
             fireBall();
 
-        if (Input.GetKeyDown("l"))
+        if (Input.GetKeyDown("r"))
             recall();
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown("space"))
             usePowerUp();
         
         speedInUnitPerSecond = rb.velocity.magnitude;
@@ -97,7 +97,7 @@ public class BallScript : MonoBehaviour
 
     void fireBall()
     {
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("up") || Input.GetKeyDown("space")) {
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up")) {
 
             if (Input.GetAxis("Horizontal") < -0.2) //left
             {

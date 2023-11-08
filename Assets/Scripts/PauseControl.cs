@@ -72,8 +72,7 @@ public class PauseControl : MonoBehaviour
 
     void winGame()
     {
-        string kills = ""+deathToll;
-        resultsText.text = "Final Score: " + formatScore()+ "\nTime: " + timeScript.getCurrentTime() + "\nEnemies Killed: " + kills;
+        resultsText.text = resultsTextFormatter();
         resultsShowing = true;
         endBackground.SetActive(true);
         shake.start = false;
@@ -83,13 +82,23 @@ public class PauseControl : MonoBehaviour
 
     public void loseGame()
     {
-        string kills = "" + deathToll;
-        lostText.text = "Final Score: " + formatScore() + "\nTime: " + timeScript.getCurrentTime() + "\nEnemies Killed: " + kills;
+        lostText.text = resultsTextFormatter();
         resultsShowing = true;
         lossBackground.SetActive(true);
         shake.start = false;
         Time.timeScale = 0f;
 
+    }
+
+    private string resultsTextFormatter()
+    {
+        string result;
+        result = "Score: " + scoreText.text +
+     "\nTime: " + timeScript.getCurrentTime() +
+     "\nScore Multiplyer: " + timeScript.getTime() +
+     "\nFinal Score: " + formatScore() + "\nEnemies Killed: " + deathToll;
+
+        return result;
     }
 
     private int formatScore()

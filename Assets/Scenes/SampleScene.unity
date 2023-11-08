@@ -5096,8 +5096,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.07, y: 15.4245}
-  m_SizeDelta: {x: 157.86, y: 71.1249}
+  m_AnchoredPosition: {x: -1.07, y: 10.9139}
+  m_SizeDelta: {x: 157.86, y: 104.5036}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &810706928
 MonoBehaviour:
@@ -9447,8 +9447,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.07, y: 15.4245}
-  m_SizeDelta: {x: 157.86, y: 71.1249}
+  m_AnchoredPosition: {x: -1.07, y: 9.1096}
+  m_SizeDelta: {x: 157.86, y: 104.5035}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1664012747
 MonoBehaviour:
@@ -12207,7 +12207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8097966148605176221, guid: 1f379091849aa4a9f9acb08ae6489723, type: 3}
       propertyPath: dashingPower
-      value: 15
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8097966148605176221, guid: 1f379091849aa4a9f9acb08ae6489723, type: 3}
       propertyPath: dashingCooldown

@@ -15,6 +15,6 @@ public class Combo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = ballScript.combo + " X";
+        text.text = ballScript.combo + "x";
     }
 }

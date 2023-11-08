@@ -54,7 +54,18 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ball" || collision.gameObject.tag == "Paddle")
+        {
+            AudioSource.PlayClipAtPoint(currentClip, transform.position, 1);
+            ParticleSystem debris = Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
+            debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
+            addDeathCount();
+            addScore(1);
+            Destroy(this.gameObject);
+        }
+    }
     private void addDeathCount()
     {
 

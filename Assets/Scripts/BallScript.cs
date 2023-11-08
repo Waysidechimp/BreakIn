@@ -76,15 +76,15 @@ public class BallScript : MonoBehaviour
             }
         }
 
+        if ((Input.GetKeyDown("up") || Input.GetKeyDown("w")) && !withPaddle)
+            usePowerUp();
+
         if (!pause.getGameIsPaused() && withPaddle)
             fireBall();
 
         if (Input.GetKeyDown("r"))
             recall();
 
-        if (Input.GetKeyDown("space"))
-            usePowerUp();
-        
         speedInUnitPerSecond = rb.velocity.magnitude;
 
     }

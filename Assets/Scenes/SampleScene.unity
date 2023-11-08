@@ -954,6 +954,7 @@ MonoBehaviour:
   lossUI: {fileID: 810706926}
   lossBackground: {fileID: 1395494350}
   ScoreAmount: {fileID: 1176868594}
+  shake: {fileID: 519420033}
 --- !u!50 &171274127
 Rigidbody2D:
   serializedVersion: 4

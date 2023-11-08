@@ -20,6 +20,7 @@ public class PauseControl : MonoBehaviour
     [SerializeField] GameObject lossUI;
     [SerializeField] GameObject lossBackground;
     [SerializeField] GameObject ScoreAmount;
+    [SerializeField] shake shake;
     private int deathToll = 0;
     private Text lostText;
     private Text scoreText;
@@ -75,6 +76,7 @@ public class PauseControl : MonoBehaviour
         resultsText.text = "Final Score: " + formatScore()+ "\nTime: " + timeScript.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         endBackground.SetActive(true);
+        shake.start = false;
         Time.timeScale = 0f;
 
     }
@@ -85,6 +87,7 @@ public class PauseControl : MonoBehaviour
         lostText.text = "Final Score: " + formatScore() + "\nTime: " + timeScript.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         lossBackground.SetActive(true);
+        shake.start = false;
         Time.timeScale = 0f;
 
     }

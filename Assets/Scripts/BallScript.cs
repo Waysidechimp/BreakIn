@@ -265,8 +265,10 @@ public class BallScript : MonoBehaviour
 
     public void useCombo()
     {
-            combo = 11;
-            damage = 2;
+        combo = 11;
+        damage = 2;
+        trailRenderer.startColor = new Color(1f, 0f, 0f, 1.0f);//Red
+        trailRenderer.endColor = new Color(1f, 0.5f, 0f, 1.0f);//Orange
     }
 
     public void powerUpUpdate(string powerUp){

@@ -260,7 +260,7 @@ public class BallScript : MonoBehaviour
 
     private void updateRecallText()
     {
-        recallText.GetComponent<Text>().text = "Recall Amount:\n"+recallAmount;
+        recallText.GetComponent<Text>().text = "Recall:\n"+recallAmount;
     }
 
     public void useCombo()

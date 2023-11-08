@@ -6,31 +6,24 @@ public class EnemyScript : MonoBehaviour
 {
     [SerializeField] float speed=5;
     [SerializeField] float invulnerability = 0.5f;
-    [SerializeField] TimeScript timeScript;
     private PolygonCollider2D polygon;
     [SerializeField] ParticleSystem explosion;
     [SerializeField] List<AudioClip> clips;
+    private GameObject playerBase;
     AudioClip currentClip;
-    private GameObject textObject;
-    private Text deathText;
     private Text scoreText;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        playerBase = GameObject.FindGameObjectWithTag("PlayerBase");
         polygon = gameObject.GetComponent<PolygonCollider2D>();
-        timeScript = GameObject.FindGameObjectWithTag("Time").GetComponent<TimeScript>();
         currentClip = clips[Random.Range(0, clips.Count-1)];
         scoreText = GameObject.FindGameObjectWithTag("ScoreCounter").GetComponent<Text>();
     }
 
-    private void Awake()
-    {
-        textObject = GameObject.FindGameObjectWithTag("KillCounter");
-        deathText = textObject.GetComponent<Text>();
 
-    }
 
     // Update is called once per frame
     void Update()
@@ -48,7 +41,7 @@ public class EnemyScript : MonoBehaviour
             AudioSource.PlayClipAtPoint(currentClip, transform.position, 1);
             ParticleSystem debris = Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
-            addDeathCount();
+            playerBase.GetComponent<PauseControl>().addDeathToll();
             addScore(1);
             Destroy(this.gameObject);
         }
@@ -61,16 +54,10 @@ public class EnemyScript : MonoBehaviour
             AudioSource.PlayClipAtPoint(currentClip, transform.position, 1);
             ParticleSystem debris = Instantiate(explosion, this.gameObject.transform.position, Quaternion.identity);
             debris.transform.position = new Vector3(debris.transform.position.x + 0.5f, debris.transform.position.y - 0.25f, debris.transform.position.z);
-            addDeathCount();
+            playerBase.GetComponent<PauseControl>().addDeathToll();
             addScore(1);
             Destroy(this.gameObject);
         }
-    }
-    private void addDeathCount()
-    {
-
-        int currentDeaths = int.Parse(deathText.text) + 1;
-        deathText.text = currentDeaths.ToString();
     }
 
     private void addScore (int additionalScore)

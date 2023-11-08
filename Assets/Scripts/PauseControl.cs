@@ -20,6 +20,7 @@ public class PauseControl : MonoBehaviour
     [SerializeField] GameObject lossUI;
     [SerializeField] GameObject lossBackground;
     [SerializeField] GameObject ScoreAmount;
+    private int deathToll = 0;
     private Text lostText;
     private Text scoreText;
     private Text resultsText;
@@ -47,6 +48,10 @@ public class PauseControl : MonoBehaviour
         return gameIsPaused;
     }
 
+    public void addDeathToll()
+    {
+        deathToll++;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -66,7 +71,7 @@ public class PauseControl : MonoBehaviour
 
     void winGame()
     {
-        string kills = GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
+        string kills = ""+deathToll;
         resultsText.text = "Final Score: " + formatScore()+ "\nTime: " + timeScript.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         endBackground.SetActive(true);
@@ -76,7 +81,7 @@ public class PauseControl : MonoBehaviour
 
     public void loseGame()
     {
-        string kills = GameObject.FindGameObjectWithTag("KillCounter").GetComponent<Text>().text;
+        string kills = "" + deathToll;
         lostText.text = "Final Score: " + formatScore() + "\nTime: " + timeScript.getCurrentTime() + "\nEnemies Killed: " + kills;
         resultsShowing = true;
         lossBackground.SetActive(true);

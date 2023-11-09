@@ -5,23 +5,43 @@ using UnityEngine;
 public class MusicBox : MonoBehaviour
 {
     [SerializeField] List<AudioClip> songs;
+    [SerializeField] List<AudioClip> menuSongs;
     Stack<AudioClip> songsStack;
+    Stack<AudioClip> menuStack;
     AudioSource audio;
+    public bool menuIsOpen;
 
     private void Awake()
     {
+        menuIsOpen = true;
         audio = GetComponent<AudioSource>();
         songs = RandomizeSongList(songs);
+        menuSongs = RandomizeSongList(menuSongs);
         songsStack = new Stack<AudioClip>(songs);
+        menuStack = new Stack<AudioClip>(menuStack);
 
-        GetNextSong(songsStack);
+        if (!menuIsOpen)
+        {
+            GetNextSong(songsStack);
+        }
+        else
+        {
+            GetNextSong(menuStack);
+        }
     }
 
     private void Update()
     {
         if(!audio.isPlaying)
         {
-            GetNextSong(songsStack);
+            if (!menuIsOpen)
+            {
+                GetNextSong(songsStack);
+            }
+            else
+            {
+                GetNextSong(menuStack);
+            }
         }
     }
 

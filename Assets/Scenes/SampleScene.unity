@@ -3530,11 +3530,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a0d2925f45791c34b92d16accf34b25b, type: 3}
   - {fileID: 8300000, guid: 873673a09632d964ab58ae55a2ec7bbe, type: 3}
   - {fileID: 8300000, guid: ccef44d727c797f459bcd2a80178dc01, type: 3}
-  - {fileID: 8300000, guid: e9fe818ae5ebe3c43808d90e212d3d9f, type: 3}
-  - {fileID: 8300000, guid: 5922e80178fe780418bf1417f97a6582, type: 3}
   - {fileID: 8300000, guid: 0fe75c97c9ec38542b348a3ae6e5b934, type: 3}
-  - {fileID: 8300000, guid: 74bb01fd1bdacb441aa64b2ce6a3316a, type: 3}
   - {fileID: 8300000, guid: effc1bb0751280748a142bc3d911d10c, type: 3}
+  menuSongs: []
+  menuIsOpen: 1
 --- !u!114 &519420036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5400,6 +5399,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 519420028}
+        m_TargetAssemblyTypeName: PauseControl, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -9658,7 +9669,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1706506272}
+      - m_Target: {fileID: 1982736254}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6

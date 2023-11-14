@@ -22,6 +22,8 @@ public class BallScript : MonoBehaviour
 
     [SerializeField] bool withPaddle = true;
     [SerializeField] GameObject paddle;
+    [SerializeField] GameObject particles;
+    private ParticleSystem particleSystem;
     private Rigidbody2D rb;
     [SerializeField]
     float speedInUnitPerSecond;
@@ -49,6 +51,7 @@ public class BallScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        particleSystem = particles.GetComponent<ParticleSystem>();
         ghostBallin = GetComponent<GhostBallin>();
         audio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
@@ -76,7 +79,7 @@ public class BallScript : MonoBehaviour
             }
         }
 
-        if ((Input.GetKeyDown("up") || Input.GetKeyDown("w")) && !withPaddle)
+        if ((Input.GetKeyDown("up") || Input.GetKeyDown("w") ||  Input.GetKeyDown("space")) && !withPaddle)
             usePowerUp();
 
         if (!pause.getGameIsPaused() && withPaddle)
@@ -97,7 +100,7 @@ public class BallScript : MonoBehaviour
 
     void fireBall()
     {
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("up")) {
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up")|| Input.GetKeyDown("space")) {
 
             if (Input.GetAxis("Horizontal") < -0.2) //left
             {
@@ -232,32 +235,55 @@ public class BallScript : MonoBehaviour
 
     private void usePowerUp()
     {
-        if(currentPowerUp != "None")
-        switch (currentPowerUp)
+        if (currentPowerUp != "None")
         {
-            case "Ghost":
-                //use ghost script
-                ghostBallin.isGhostBall = true;
-                break;
+            switch (currentPowerUp)
+            {
+                case "Ghost":
+                    //use ghost script
+                    ghostBallin.isGhostBall = true;
+                    break;
 
-            case "Shotgun":
-                //use shotgun
+                case "Shotgun":
+                    //use shotgun
 
-                break;
-            case "Combo":
-                useCombo();
-                break;
+                    break;
+                case "Combo":
+                    useCombo();
+                    break;
+            }
+            disableParticles();
+            currentPowerUp = "None";
+            updatePowerUpName();
         }
 
-        currentPowerUp = "None";
-        updatePowerUpName();
     }
 
     private void updatePowerUpName()
     {
         powerUpText.GetComponent<Text>().text = currentPowerUp;
+
     }
 
+    private void enableParticles()
+    {
+        var main = particleSystem.main;
+        switch (currentPowerUp)
+        {
+            case ("Ghost"):
+                main.startColor = Color.white;
+                break;
+            case ("Combo"):
+                main.startColor = Color.red;
+                break;
+        }
+        particles.SetActive(true);
+
+    }
+    private void disableParticles()
+    {
+        particles.SetActive(false);
+    }
     private void updateRecallText()
     {
         recallText.GetComponent<Text>().text = "Recall:\n"+recallAmount;
@@ -275,6 +301,7 @@ public class BallScript : MonoBehaviour
         if (currentPowerUp == "None")
         {
             currentPowerUp = powerUp;
+            enableParticles();
         }
         updatePowerUpName();
 

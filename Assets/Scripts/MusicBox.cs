@@ -16,33 +16,33 @@ public class MusicBox : MonoBehaviour
         menuIsOpen = true;
         audio = GetComponent<AudioSource>();
         songs = RandomizeSongList(songs);
-        menuSongs = RandomizeSongList(menuSongs);
+        //menuSongs = RandomizeSongList(menuSongs);
         songsStack = new Stack<AudioClip>(songs);
-        menuStack = new Stack<AudioClip>(menuStack);
+       // menuStack = new Stack<AudioClip>(menuStack);
 
         if (!menuIsOpen)
         {
             GetNextSong(songsStack);
         }
-        else
-        {
-            GetNextSong(menuStack);
-        }
+        //else
+        //{
+          //  GetNextSong(menuStack);
+        //}
     }
 
     private void Update()
     {
         if(!audio.isPlaying)
         {
-            if (!menuIsOpen)
-            {
+            //if (!menuIsOpen)
+           // {
                 GetNextSong(songsStack);
-            }
-            else
-            {
-                GetNextSong(menuStack);
-            }
-        }
+           // }
+            //else
+            //{
+             //   GetNextSong(menuStack);
+            //}
+       }
     }
 
     //This plays the next song in the randomized stack. Also repopulates stack if it is empty.
@@ -50,7 +50,7 @@ public class MusicBox : MonoBehaviour
     AudioClip GetNextSong(Stack<AudioClip> songStack)
     {
         AudioClip clip = songsStack.Pop();
-        audio.clip = clip;
+        audio.clip = clip;  
         audio.Play();
         if(songsStack.Count <= 0)
         {

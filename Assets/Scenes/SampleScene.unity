@@ -4172,7 +4172,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &539409902
 Transform:
   m_ObjectHideFlags: 0
@@ -5097,7 +5097,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 500
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -9342,6 +9342,9 @@ MonoBehaviour:
   withPaddle: 1
   paddle: {fileID: 1118580949}
   particles: {fileID: 539409901}
+  decreaseRateSpeed: 325
+  increaseRateSpeed: 250
+  maxParticleRate: 500
   speedInUnitPerSecond: 0
   wallBounce: 0
   bounceLimit: 4

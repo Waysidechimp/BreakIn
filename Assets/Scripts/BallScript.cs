@@ -22,8 +22,15 @@ public class BallScript : MonoBehaviour
 
     [SerializeField] bool withPaddle = true;
     [SerializeField] GameObject paddle;
+
     [SerializeField] GameObject particles;
     private ParticleSystem particleSystem;
+    private bool particleStatus = false;
+    [SerializeField] float decreaseRateSpeed = 10f;
+    [SerializeField] float increaseRateSpeed = 10f;
+    [SerializeField] float maxParticleRate = 500f; // Adjust as needed
+
+
     private Rigidbody2D rb;
     [SerializeField]
     float speedInUnitPerSecond;
@@ -90,6 +97,16 @@ public class BallScript : MonoBehaviour
 
         speedInUnitPerSecond = rb.velocity.magnitude;
 
+        //Slowly remove particles from particle system
+        if(particleStatus && particleSystem.emission.rateOverTime.constant < maxParticleRate)
+        {
+            Debug.Log("Trying to increase");
+            increaseParticleRate();
+        }else if(!particleStatus && particleSystem.emission.rateOverTime.constant > 0)
+        {
+            Debug.Log("Trying to lower");
+            lowerParticleRate();
+        }
     }
 
     void followPaddle()
@@ -228,7 +245,6 @@ public class BallScript : MonoBehaviour
         if(recallAmount != 0)
         {
             withPaddle = true;
-            resetCombo();
             updateRecall(-1);
         }
     }
@@ -277,12 +293,12 @@ public class BallScript : MonoBehaviour
                 main.startColor = Color.red;
                 break;
         }
-        particles.SetActive(true);
 
+        particleStatus = true;
     }
     private void disableParticles()
     {
-        particles.SetActive(false);
+        particleStatus = false;
     }
     private void updateRecallText()
     {
@@ -314,4 +330,22 @@ public class BallScript : MonoBehaviour
         
     }
 
+    //Particle Rate Lower
+    private void lowerParticleRate()
+    {
+        var emission = particleSystem.emission;
+        var currentRate = emission.rateOverTime.constant;
+        var newRate = Mathf.Max(0, currentRate - Time.deltaTime * decreaseRateSpeed);
+        emission.rateOverTime = new ParticleSystem.MinMaxCurve(newRate);
+
+    }
+    //Particle Rate Increase
+    private void increaseParticleRate()
+    {
+        var emission = particleSystem.emission;
+        var currentRate = emission.rateOverTime.constant;
+        var newRate = Mathf.Min(maxParticleRate, currentRate + Time.deltaTime * increaseRateSpeed);
+        emission.rateOverTime = new ParticleSystem.MinMaxCurve(newRate);
+
+    }
 }

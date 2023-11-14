@@ -112,7 +112,7 @@ public class BrickScript : MonoBehaviour
         Shake.setStart();
 
         addScore(15);
-        timeScript.addTime(5f);
+        timeScript.addTime(3f);
 
         Destroy(this.gameObject);
     }

@@ -86,7 +86,7 @@ public class BallScript : MonoBehaviour
             }
         }
 
-        if ((Input.GetKeyDown("up") || Input.GetKeyDown("w") ||  Input.GetKeyDown("space")) && !withPaddle)
+        if ((Input.GetKeyDown("space")) && !withPaddle)
             usePowerUp();
 
         if (!pause.getGameIsPaused() && withPaddle)
@@ -100,11 +100,11 @@ public class BallScript : MonoBehaviour
         //Slowly remove particles from particle system
         if(particleStatus && particleSystem.emission.rateOverTime.constant < maxParticleRate)
         {
-            Debug.Log("Trying to increase");
+            //Debug.Log("Trying to increase");
             increaseParticleRate();
         }else if(!particleStatus && particleSystem.emission.rateOverTime.constant > 0)
         {
-            Debug.Log("Trying to lower");
+            //Debug.Log("Trying to lower");
             lowerParticleRate();
         }
     }
@@ -117,7 +117,7 @@ public class BallScript : MonoBehaviour
 
     void fireBall()
     {
-        if (Input.GetKeyDown("w") || Input.GetKeyDown("up")|| Input.GetKeyDown("space")) {
+        if (Input.GetKeyDown("w") || Input.GetKeyDown("up")) {
 
             if (Input.GetAxis("Horizontal") < -0.2) //left
             {
@@ -136,7 +136,6 @@ public class BallScript : MonoBehaviour
 
             //Always after the paddle is shot change it to not with paddle
             withPaddle = false;
-            resetCombo();
         }
     }
 
@@ -153,6 +152,7 @@ public class BallScript : MonoBehaviour
         if (collision.gameObject.tag == "PlayerBase")
         {
             rb.velocity = Vector3.zero;
+            resetCombo();
             withPaddle = true;
         }
 

@@ -4266,9 +4266,9 @@ MonoBehaviour:
       green: 0
       blue: 0
       greyScale: 0
-    dithering4: 0.063
-    dithering8: 0.063
-    vignette: 0.161
+    dithering4: 0
+    dithering8: 0.036
+    vignette: 0.17
     innerCurve: 20
     monitorCurve: 0
     monitorInnerSize:
@@ -15927,13 +15927,13 @@ Material:
     - _ScanlinesOpt: 0.4
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Spread: 0.063
-    - _Spread8: 0.063
+    - _Spread: 0
+    - _Spread8: 0.036
     - _SrcBlend: 1
     - _UVSec: 0
     - _VertJerkOpt: 1
     - _VertMovementOpt: 1
-    - _VigSize: 0.161
+    - _VigSize: 0.17
     - _ZWrite: 1
     m_Colors:
     - _BorderTint: {r: 0.121796034, g: 0.12775578, b: 0.16037738, a: 1}
@@ -17528,7 +17528,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1.25
   m_Text: "Move Left: \nMove Right: \nDash: Left+Shift or Right+Shift\nShoot:\nPause:
-    Escape\nUse Power-up: Shoot \nRecall Ball: R\n"
+    Escape\nUse Power-up: Shoot + Space\nRecall Ball: R\n"
 --- !u!222 &1883236261
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -160,5 +160,22 @@ public class PauseControl : MonoBehaviour
             GameObject bill = Instantiate(billboard, collision.gameObject.transform.position, Quaternion.identity);
             bill.transform.position = new Vector3(bill.transform.position.x + 0.5f, bill.transform.position.y - 0.25f, bill.transform.position.z);
         }
+        else
+        {
+            switch (collision.gameObject.tag)
+            {
+                case ("Ghost"):
+                    Destroy(collision.gameObject);
+                    break;
+                case ("Recall"):
+                    Destroy(collision.gameObject);
+                    break;
+                case ("Combo"):
+                    Destroy(collision.gameObject);
+                    break;
+            }
+        }
+
+        
     }
 }
